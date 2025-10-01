@@ -21,7 +21,7 @@ app.secret_key = 'your_very_secret_key'
 
 # 데이터 로딩 (애플리케이션 시작 시 한 번만 로드)
 try:
-    EFF_DF_ORIGINAL = pd.read_csv("../vocab/efficiency/efficiencyvoca_highschool_essential.csv")
+    EFF_DF_ORIGINAL = pd.read_csv("./efficiencyvoca_highschool_essential.csv")
 except FileNotFoundError:
     print("Warning: efficiencyvoca_highschool_essential.csv not found.")
     EFF_DF_ORIGINAL = None
