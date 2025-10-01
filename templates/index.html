@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eff-Vocab Viewer - 시작</title>
+    <style>
+        body { background-color: black; color: cyan; font-family: Helvetica, sans-serif; text-align: center; padding-top: 50px; }
+        .container { max-width: 500px; margin: auto; }
+        h1 { font-size: 24px; }
+        input[type="number"], button { font-size: 16px; padding: 10px; margin: 10px; }
+        .shuffle-label { font-size: 16px; }
+    </style>
+
+    <!-- 모바일 반응형 디자인을 위한 미디어 쿼리 -->
+    <style>
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 20px;
+            }
+            input[type="number"], button {
+                width: 80%; /* 입력 필드와 버튼 너비 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>시작 인덱스를 입력하세요:</h1>
+        <form action="/" method="post">
+            <div>
+                <input type="number" name="start_index" value="1" min="1" max="{{ max_index }}">
+                <label class="shuffle-label">
+                    <input type="checkbox" name="is_shuffle"> Shuffle
+                </label>
+            </div>
+            <div>
+                <button type="submit">시작</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

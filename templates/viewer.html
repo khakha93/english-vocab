@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eff-Vocab Viewer</title>
+    <style>
+        body {
+            background-color: black; color: cyan; font-family: Helvetica, sans-serif;
+            display: flex; flex-direction: column;
+            height: calc(var(--vh, 1vh) * 100); /* JS에서 계산한 실제 화면 높이 사용 */
+            margin: 0; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px; width: 100%; box-sizing: border-box; }
+        .counter { color: yellow; font-size: 14px; }
+        .state { color: yellow; font-size: 24px; font-weight: bold; position: absolute; left: 50%; transform: translateX(-50%); }
+        .timer-container { display: flex; align-items: center; }
+        .timer { font-size: 14px; border: 1px solid white; padding: 2px 5px; margin-left: 5px; }
+        .main-content { flex-grow: 1; display: flex; width: 100%; padding: 15px; box-sizing: border-box; min-height: 0; /* 내용이 많아도 부모를 넘어가지 않도록 설정 */ }
+        .text-area { flex: 1; text-align: center; overflow-y: auto; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .title-text { font-size: 28px; }
+        .deriv-text { font-size: 20px; white-space: pre-wrap; }
+        .footer { padding: 10px; text-align: center; }
+        button { font-size: 16px; padding: 8px 15px; margin: 0 10px; cursor: pointer; }
+    </style>
+    
+    <!-- 모바일 반응형 디자인을 위한 미디어 쿼리 -->
+    <style>
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column; /* 좁은 화면에서는 세로로 쌓음 */
+                padding: 10px;
+            }
+            .text-area {
+                height: 50%; /* 각 영역이 절반의 높이를 차지 */
+                border-bottom: 1px solid #333; /* 영역 구분선 */
+            }
+            .text-area:last-child {
+                border-bottom: none;
+            }
+            .title-text { font-size: 22px; }
+            .deriv-text { font-size: 18px; }
+            .footer button {
+                padding: 12px 18px; /* 터치하기 쉽도록 버튼 크기 증가 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div id="counter" class="counter">0 (0)</div>
+        <div id="state" class="state">[ EN ]</div>
+        <div class="timer-container">
+            <div id="timer" class="timer">0:00:00</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="text-area">
+            <div id="title-text" class="title-text"></div>
+        </div>
+        <div class="text-area">
+            <div id="deriv-text" class="deriv-text"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button id="pass-btn">Pass</button>
+        <button id="pause-btn">Pause</button>
+        <button id="end-btn">종료</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/viewer.js') }}"></script>
+</body>
+</html>
