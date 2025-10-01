@@ -1,10 +1,9 @@
-import os
-import pandas as pd
-import pickle
+import os, json
 import time
 from datetime import timedelta
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_session import Session
+import random
 
 app = Flask(__name__)
 
@@ -22,44 +21,13 @@ app.secret_key = 'your_very_secret_key'
 
 # 데이터 로딩 (애플리케이션 시작 시 한 번만 로드)
 try:
-    EFF_DF_ORIGINAL = pd.read_pickle("./words.pkl")
+    with open(r'vocab\data.json', 'r', encoding='utf-8') as f:
+        EFF_JS_ORIGINAL = json.load(f)
 except FileNotFoundError:
     print("Warning: efficiencyvoca_highschool_essential.csv not found.")
-    EFF_DF_ORIGINAL = None
+    EFF_JS_ORIGINAL = None
 
 
-def seperate_words(df):
-    """EffVocabViewer의 데이터 전처리 로직을 웹에 맞게 변환"""
-    # 표제어만 필터링하여 title_df 생성
-    title_df = df[df['분류'] == '표제어'].reset_index()
-    # 원본 인덱스를 'original_index'로 저장
-    title_df = title_df.rename(columns={'index': 'original_index'})
-
-    # 파생어만 필터링하여 deriv_df 생성
-    deriv_df = df[df['분류'] != '표제어'].copy()
-
-    if not deriv_df.empty and not title_df.empty:
-        # 각 파생어에 해당하는 표제어의 'original_index'를 찾기 위한 준비
-        # 표제어인 행은 해당 행의 인덱스를, 아닌 행은 NaN을 갖는 'Series' 생성
-        # df.index는 'Index' 객체이므로, Series로 변환 후 where를 적용해야 ffill()을 사용할 수 있습니다.
-        title_indices = pd.Series(df.index).where(df['분류'] == '표제어')
-        # ffill()을 사용하여 각 행이 속한 가장 가까운 이전 표제어의 인덱스를 찾음
-        parent_title_indices = title_indices.ffill()
-        
-        # 파생어에 해당하는 표제어의 original_index를 'key'로 할당
-        deriv_df['key'] = parent_title_indices[deriv_df.index]
-        
-        # 'key' (원본 인덱스)를 title_df의 새 인덱스로 매핑하기 위한 딕셔너리 생성
-        original_to_new_index_map = title_df.reset_index().set_index('original_index')['index'].to_dict()
-        deriv_df['key'] = deriv_df['key'].map(original_to_new_index_map)
-
-    return title_df, deriv_df
-
-
-if EFF_DF_ORIGINAL is not None:
-    TITLE_DF, DERIV_DF = seperate_words(EFF_DF_ORIGINAL)
-else:
-    TITLE_DF, DERIV_DF = pd.DataFrame(), pd.DataFrame()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -74,11 +42,10 @@ def index():
         is_shuffle = request.form.get('is_shuffle') == 'on'
 
         # 세션에는 큰 데이터를 저장하지 않고, 인덱스 목록만 관리합니다.
-        word_indices = list(range(len(TITLE_DF)))
+        word_indices = list(range(len(EFF_JS_ORIGINAL)))
         if is_shuffle:
             # 시작 인덱스 이후의 단어들을 셔플합니다.
             part_to_shuffle = word_indices[start_index:]
-            import random
             random.shuffle(part_to_shuffle)
             word_indices[start_index:] = part_to_shuffle
         
@@ -96,7 +63,7 @@ def index():
 
         return redirect(url_for('viewer'))
 
-    return render_template('index.html', max_index=len(TITLE_DF))
+    return render_template('index.html', max_index=len(EFF_JS_ORIGINAL))
 
 
 @app.route('/viewer')
@@ -122,11 +89,8 @@ def get_word():
 
     # 세션에 저장된 인덱스 순서에 따라 실제 단어 인덱스를 가져옵니다.
     actual_index = word_indices[current_pos]
-    row = TITLE_DF.iloc[actual_index]
+    row = EFF_JS_ORIGINAL[str(actual_index)]
     session['last_index'] = actual_index # 요약 화면을 위해 실제 인덱스를 저장
-
-    # 파생어 찾기 (seperate_words에서 생성된 key 기준)
-    deriv_rows = DERIV_DF[DERIV_DF['key'] == actual_index] if not DERIV_DF.empty else pd.DataFrame()
 
     # 다음 인덱스 준비
     session['current_index'] = (current_pos + 1)
@@ -135,10 +99,10 @@ def get_word():
     already_know = len(session['pass_rows'])
 
     return jsonify({
-        'title_en': row['단어'],
-        'title_ko': row['뜻'],
-        'deriv_en': list(deriv_rows['단어']) if not deriv_rows.empty else [],
-        'deriv_ko': list(deriv_rows['뜻']) if not deriv_rows.empty else [],
+        'title_en': row['en'],
+        'title_ko': row['ko'],
+        'deriv_en': row['deriv_en'],
+        'deriv_ko': row['deriv_ko'],
         'progress': f"{progress} ({progress - already_know})",
         'finished': False
     })
@@ -184,16 +148,12 @@ def summary():
     passed_count = len(session.get('pass_rows', []))
     start_idx = session.get('start_index', 0) + 1
 
-    # 마지막으로 학습한 단어의 실제 인덱스
-    last_actual_index = session.get('last_index', -1)
-    last_idx = last_actual_index + 1 if last_actual_index != -1 else start_idx
-
     # 총 진행 개수 계산
     total_studied = session.get('current_index', 0) - session.get('start_index', 0)
     final_progress_str = f"{total_studied} ({total_studied - passed_count})"
 
     return render_template('summary.html', total_time=total_time, pause_time=pause_time,
-                           passed_count=passed_count, start_idx=start_idx, last_idx=last_idx,
+                           passed_count=passed_count, start_idx=start_idx,
                            total_studied=total_studied, final_progress=final_progress_str)
 
 if __name__ == '__main__':
