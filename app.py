@@ -21,13 +21,11 @@ app.secret_key = 'your_very_secret_key'
 
 # 데이터 로딩 (애플리케이션 시작 시 한 번만 로드)
 try:
-    with open(r'vocab\data.json', 'r', encoding='utf-8') as f:
+    with open('./vocab/data.json', 'r', encoding='utf-8') as f:
         EFF_JS_ORIGINAL = json.load(f)
 except FileNotFoundError:
     print("Warning: efficiencyvoca_highschool_essential.csv not found.")
     EFF_JS_ORIGINAL = None
-
-
 
 
 @app.route('/', methods=['GET', 'POST'])
