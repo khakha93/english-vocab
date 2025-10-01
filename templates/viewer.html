@@ -12,7 +12,7 @@
             margin: 0; }
         .header { display: flex; justify-content: space-between; align-items: center; padding: 10px; width: 100%; box-sizing: border-box; }
         .counter { color: yellow; font-size: 18px; }
-        .state { color: yellow; font-size: 24px; font-weight: bold; position: absolute; left: 50%; transform: translateX(-50%); }
+        .state { color: yellow; font-size: 28px; font-weight: bold; position: absolute; left: 50%; transform: translateX(-50%); }
         .timer-container { display: flex; align-items: center; }
         .timer { color: yellow; font-size: 18px; border: 1px solid white; padding: 2px 5px; margin-left: 5px; }
         .main-content { flex-grow: 1; display: flex; width: 100%; padding: 15px; box-sizing: border-box; min-height: 0; /* 내용이 많아도 부모를 넘어가지 않도록 설정 */ }
@@ -46,13 +46,11 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div id="counter" class="counter">0 (0)</div>
-        <div id="state" class="state">[ EN ]</div>
-        <div class="timer-container">
-            <div id="timer" class="timer">0:00:00</div>
-        </div>
-    </div>
+    {% set timer_button = True %}
+    {% set counter = '0 (0)' %}
+    {% set state = '[ EN ]' %}
+    {% set timer = '00:00:00' %}
+    {% include 'header.html' %}
 
     <div class="main-content">
         <div class="text-area">

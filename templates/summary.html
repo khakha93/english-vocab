@@ -23,12 +23,10 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div id="counter" class="counter">{{ final_progress }}</div>
-        <div class="timer-container">
-            <div id="timer" class="timer">{{ total_time }}</div>
-        </div>
-    </div>
+    {% set timer_button = True %}
+    {% set counter = final_progress %}
+    {% set timer = total_time %}
+    {% include 'header.html' %}
 
     <div class="main-content">
         <h1>학습 요약</h1>
@@ -48,6 +46,8 @@
         // 뒤로 가기 막기 (새로운 학습 세션 시작 유도)
         history.pushState(null, null, location.href);
         window.onpopstate = function () { history.go(1); };
+    </script>
+    <script src="{{ url_for('static', filename='js/summary.js') }}"></script>
     </script>
 </body>
 </html>

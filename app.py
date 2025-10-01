@@ -1,6 +1,6 @@
 import os, json
 import time
-from datetime import timedelta
+from formatted_timedelta import FormattedTimedelta
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_session import Session
 import random
@@ -141,8 +141,8 @@ def summary():
     if 'word_indices' not in session or 'total_elapsed' not in session:
         return redirect(url_for('index'))
 
-    total_time = timedelta(seconds=int(session['total_elapsed'] - session['pause_total']))
-    pause_time = timedelta(seconds=int(session['pause_total']))
+    total_time = FormattedTimedelta(seconds=int(session['total_elapsed'] - session['pause_total']))
+    pause_time = FormattedTimedelta(seconds=int(session['pause_total']))
     passed_count = len(session.get('pass_rows', []))
     start_idx = session.get('start_index', 0) + 1
 

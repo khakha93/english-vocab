@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const counterEl = document.getElementById('counter');
     const stateEl = document.getElementById('state');
-    const timerEl = document.getElementById('timer');
+    const timerBtn = document.getElementById('timer-btn');
+    const timerTextEl = document.getElementById('timer-text');
+    let timerHidden = false;
     const titleTextEl = document.getElementById('title-text');
     const derivTextEl = document.getElementById('deriv-text');
     const passBtn = document.getElementById('pass-btn');
@@ -29,10 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTimer() {
-        if (!state.paused) {
+        if (!state.paused && !timerHidden) {
             state.elapsedSeconds++;
-            timerEl.textContent = formatTime(state.elapsedSeconds);
+            timerTextEl.textContent = formatTime(state.elapsedSeconds);
         }
+    }
+
+    function renderTimer() {
+        if (timerHidden) {
+            timerTextEl.textContent = '⏲️';
+            timerTextEl.style.fontSize = '20px';
+        } else {
+            timerTextEl.textContent = formatTime(state.elapsedSeconds);
+            timerTextEl.style.fontSize = '';
+        }
+    }
+
+    function toggleTimerDisplay() {
+        timerHidden = !timerHidden;
+        renderTimer();
     }
 
     async function fetchNextWord() {
@@ -175,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     passBtn.addEventListener('click', passImmediate);
     pauseBtn.addEventListener('click', togglePause);
     endBtn.addEventListener('click', endRun);
+    timerBtn.addEventListener('click', toggleTimerDisplay);
 
     // --- 화면 높이 최적화 (모바일 브라우저 UI 문제 해결) ---
     function setScreenHeight() {
@@ -188,7 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     function start() {
         setScreenHeight(); // 초기 로드 시 높이 설정
-        state.timerIntervalId = setInterval(updateTimer, 1000);
+        renderTimer();
+        state.timerIntervalId = setInterval(() => {
+            if (!timerHidden) updateTimer();
+        }, 1000);
         loadAndShowNextWord();
     }
 

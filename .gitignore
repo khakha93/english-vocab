@@ -3,8 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# My Settings
 .vscode/
 flask_session/
+*.ipynb
 
 # C extensions
 *.so
