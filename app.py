@@ -1,9 +1,9 @@
 import os, json
 import time
+import random
 from formatted_timedelta import FormattedTimedelta
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_session import Session
-import random
 
 app = Flask(__name__)
 
@@ -11,10 +11,17 @@ app = Flask(__name__)
 # 세션 데이터를 서버의 파일 시스템에 저장하도록 설정합니다.
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+
 # 세션 파일이 저장될 폴더를 생성합니다.
-session_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'flask_session')
+# session_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'flask_session')
+# os.makedirs(session_dir, exist_ok=True)
+# app.config["SESSION_FILE_DIR"] = session_dir
+
+# /tmp는 Render에서 안전하게 쓸 수 있는 디렉토리
+session_dir = '/tmp/flask_session'
 os.makedirs(session_dir, exist_ok=True)
 app.config["SESSION_FILE_DIR"] = session_dir
+
 Session(app)
 
 app.secret_key = 'your_very_secret_key'
@@ -153,6 +160,10 @@ def summary():
     return render_template('summary.html', total_time=total_time, pause_time=pause_time,
                            passed_count=passed_count, start_idx=start_idx,
                            total_studied=total_studied, final_progress=final_progress_str)
+
+@app.route('/health')
+def health():
+    return jsonify({'status': 'ok'}), 200
 
 if __name__ == '__main__':
     # app.run(debug=True)
