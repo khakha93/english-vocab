@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // KO 화면을 표시했으므로, 다음 Pass를 위해 mode를 'en'으로 설정합니다.
                 state.mode = 'en';
             } else { // 현재 KO 화면에서 Pass를 누른 경우 -> 다음 단어의 EN 화면으로 전환
-                state.mode = 'en';
+                // state.mode = 'en';
                 const data = await fetchNextWord();
                 if (data.finished) {
                     endRun();
@@ -118,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 가져온 데이터로 상태와 화면을 직접 갱신
                 state.currentWordData = data;
                 counterEl.textContent = data.progress;
-                state.mode = 'en'; // 다음 단어의 EN 모드로 상태를 명확히 설정
+                // 다음 단어의 EN 모드로 상태를 명확히 설정
+                // state.mode = 'en';
                 renderCurrentWord();
+                state.mode = 'ko';
             }
         } else {
             // 실행 중일 때는 기존 로직대로 즉시 다음 단계로 진행
