@@ -2,43 +2,25 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eff-Vocab Viewer - 시작</title>
-    <style>
-        body { background-color: black; color: cyan; font-family: Helvetica, sans-serif; text-align: center; padding-top: 50px; }
-        .container { max-width: 500px; margin: auto; }
-        h1 { font-size: 24px; }
-        input[type="number"], button { font-size: 16px; padding: 10px; margin: 10px; }
-        .shuffle-label { font-size: 16px; }
-    </style>
-
-    <!-- 모바일 반응형 디자인을 위한 미디어 쿼리 -->
-    <style>
-        @media (max-width: 768px) {
-            .container {
-                padding-top: 20px;
-            }
-            input[type="number"], button {
-                width: 80%; /* 입력 필드와 버튼 너비 조정 */
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Eff-Vocab Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>시작 인덱스를 입력하세요:</h1>
-        <form action="/" method="post">
-            <div>
+    <div class="app">
+        <header>
+            <h1 class="title">Eff-Vocab Viewer</h1>
+        </header>
+        <form method="POST">
+            <div class="form-group">
+                <label for="start_index">시작 번호:</label>
                 <input type="number" name="start_index" value="1" min="1" max="{{ max_index }}">
             </div>
-            <div>
-                <label class="shuffle-label">
-                    <input type="checkbox" name="is_shuffle"> Shuffle
-                </label>
+            <div class="form-group">
+                <input type="checkbox" id="is_shuffle" name="is_shuffle">
+                <label for="is_shuffle">단어 섞기 (Shuffle)</label>
             </div>
-            <div>
-                <button type="submit">시작</button>
-            </div>
+            <button type="submit" class="primary">시작</button>
         </form>
     </div>
 </body>

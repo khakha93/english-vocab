@@ -17,10 +17,13 @@ app.config["SESSION_TYPE"] = "filesystem"
 # os.makedirs(session_dir, exist_ok=True)
 # app.config["SESSION_FILE_DIR"] = session_dir
 
-# /tmp는 Render에서 안전하게 쓸 수 있는 디렉토리
-session_dir = '/tmp/flask_session'
-os.makedirs(session_dir, exist_ok=True)
-app.config["SESSION_FILE_DIR"] = session_dir
+# Render와 같은 일부 배포 환경에서는 '/tmp' 디렉토리에만 쓰기가 가능합니다.
+session_dir = os.path.join('/tmp', 'flask_session')
+try:
+    os.makedirs(session_dir, exist_ok=True)
+    app.config["SESSION_FILE_DIR"] = session_dir
+except OSError as e:
+    app.logger.warning(f"Could not create session directory: {e}")
 
 Session(app)
 
@@ -28,7 +31,7 @@ app.secret_key = 'your_very_secret_key'
 
 # 데이터 로딩 (애플리케이션 시작 시 한 번만 로드)
 try:
-    with open('./vocab/data.json', 'r', encoding='utf-8') as f:
+    with open('vocab/data.json', 'r', encoding='utf-8') as f:
         EFF_JS_ORIGINAL = json.load(f)
 except FileNotFoundError:
     print("Warning: efficiencyvoca_highschool_essential.csv not found.")
@@ -76,7 +79,31 @@ def viewer():
     """단어 학습 메인 화면"""
     if 'word_indices' not in session:
         return redirect(url_for('index'))
-    return render_template('viewer.html')
+
+    # 첫 단어 데이터를 미리 불러와서 템플릿에 전달
+    current_pos = session.get('current_index', 0)
+    word_indices = session['word_indices']
+
+    if not (0 <= current_pos < len(word_indices)):
+        # 학습할 단어가 없는 경우 요약 페이지로 바로 이동
+        return redirect(url_for('summary'))
+
+    actual_index = word_indices[current_pos]
+    first_word_data = EFF_JS_ORIGINAL[str(actual_index)]
+    session['last_index'] = actual_index
+
+    # 다음 단어를 위해 세션의 현재 위치를 미리 증가시킴
+    session['current_index'] = current_pos + 1
+
+    # 진행률 문자열 생성
+    progress = current_pos - session.get('start_index', 0) + 1
+    already_know = len(session.get('pass_rows', []))
+    progress_str = f"{progress} ({progress - already_know})"
+
+    # initial_word_data와 initial_progress를 템플릿에 전달
+    return render_template('viewer.html',
+                           initial_word_data=first_word_data,
+                           initial_progress=progress_str)
 
 
 @app.route('/get_word')
@@ -91,7 +118,7 @@ def get_word():
     if not (0 <= current_pos < len(word_indices)):
         # 학습 완료
         return jsonify({'finished': True})
-
+    
     # 세션에 저장된 인덱스 순서에 따라 실제 단어 인덱스를 가져옵니다.
     actual_index = word_indices[current_pos]
     row = EFF_JS_ORIGINAL[str(actual_index)]
@@ -104,8 +131,8 @@ def get_word():
     already_know = len(session['pass_rows'])
 
     return jsonify({
-        'title_en': row['en'],
-        'title_ko': row['ko'],
+        'en': row['en'],
+        'ko': row['ko'],
         'deriv_en': row['deriv_en'],
         'deriv_ko': row['deriv_ko'],
         'progress': f"{progress} ({progress - already_know})",

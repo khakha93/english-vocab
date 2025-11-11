@@ -17,11 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const counterEl = document.getElementById('counter');
     const stateEl = document.getElementById('state');
-    const timerBtn = document.getElementById('timer-btn');
     const timerTextEl = document.getElementById('timer-text');
     let timerHidden = false;
     const titleTextEl = document.getElementById('title-text');
     const derivTextEl = document.getElementById('deriv-text');
+    const titlePaneEl = document.getElementById('title-pane');
+    const derivPaneEl = document.getElementById('deriv-pane');
     const passBtn = document.getElementById('pass-btn');
     const pauseBtn = document.getElementById('pause-btn');
     const endBtn = document.getElementById('end-btn');
@@ -31,24 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTimer() {
-        if (!state.paused && !timerHidden) {
-            state.elapsedSeconds++;
-            timerTextEl.textContent = formatTime(state.elapsedSeconds);
-        }
+        if (state.paused) return;
+        state.elapsedSeconds++;
+        renderTimer(); // Always call renderTimer to respect the timerHidden state
     }
 
     function renderTimer() {
         if (timerHidden) {
-            timerTextEl.textContent = '⏲️';
-            timerTextEl.style.fontSize = '20px';
+            timerTextEl.textContent = '⏲️';            
         } else {
             timerTextEl.textContent = formatTime(state.elapsedSeconds);
-            timerTextEl.style.fontSize = '';
         }
     }
 
     function toggleTimerDisplay() {
-        timerHidden = !timerHidden;
+        timerHidden = !timerHidden;        
         renderTimer();
     }
 
@@ -77,19 +75,45 @@ document.addEventListener('DOMContentLoaded', () => {
         showText();
     }
 
+    function adjustFontSize(element, pane) {
+        // Reset font size to initial value to recalculate
+        element.style.fontSize = ''; 
+
+        // Use a timeout to allow the browser to render and calculate the correct scrollHeight
+        setTimeout(() => {
+            let currentFontSize = parseFloat(window.getComputedStyle(element).fontSize);
+            const paneStyle = window.getComputedStyle(pane);
+            const panePaddingX = parseFloat(paneStyle.paddingLeft) + parseFloat(paneStyle.paddingRight);
+            const panePaddingY = parseFloat(paneStyle.paddingTop) + parseFloat(paneStyle.paddingBottom);
+
+            const availableWidth = pane.clientWidth - panePaddingX;
+            const availableHeight = pane.clientHeight - panePaddingY;
+
+            // Decrease font size until content fits the pane
+            while ((element.scrollHeight > availableHeight || element.scrollWidth > availableWidth) && currentFontSize > 8) {
+                currentFontSize -= 1;
+                element.style.fontSize = `${currentFontSize}px`;
+            }
+        }, 0);
+    }
+
     function renderCurrentWord() {
         const data = state.currentWordData;
         if (!data) return;
 
         if (state.mode === 'en') {
             stateEl.textContent = '[ EN ]';
-            titleTextEl.textContent = data.title_en;
+            titleTextEl.textContent = data.en;
             derivTextEl.textContent = data.deriv_en.join('\n');
         } else { // 'ko' mode
             stateEl.textContent = '[ KO ]';
-            titleTextEl.textContent = data.title_ko;
+            titleTextEl.textContent = data.ko;
             derivTextEl.textContent = data.deriv_ko.join('\n');
         }
+
+        // Adjust font sizes to fit content
+        adjustFontSize(titleTextEl, titlePaneEl);
+        adjustFontSize(derivTextEl, derivPaneEl);
     }
 
     function showText() {
@@ -192,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     passBtn.addEventListener('click', passImmediate);
     pauseBtn.addEventListener('click', togglePause);
     endBtn.addEventListener('click', endRun);
-    timerBtn.addEventListener('click', toggleTimerDisplay);
+    timerTextEl.addEventListener('click', toggleTimerDisplay);
 
     // --- 화면 높이 최적화 (모바일 브라우저 UI 문제 해결) ---
     function setScreenHeight() {
@@ -206,11 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     function start() {
         setScreenHeight(); // 초기 로드 시 높이 설정
+        state.currentWordData = window.initialWordData; // 서버에서 전달된 첫 단어 데이터로 초기화
         renderTimer();
-        state.timerIntervalId = setInterval(() => {
-            if (!timerHidden) updateTimer();
-        }, 1000);
-        loadAndShowNextWord();
+        state.timerIntervalId = setInterval(updateTimer, 1000);
+        showText(); // 바로 첫 단어 표시 로직 시작 (EN -> KO)
     }
 
     start();
