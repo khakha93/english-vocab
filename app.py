@@ -27,7 +27,7 @@ except OSError as e:
 
 Session(app)
 
-app.secret_key = 'your_very_secret_key'
+app.secret_key = os.environ.get('SECRET_KEY', 'a_default_secret_key_for_development')
 
 # 데이터 로딩 (애플리케이션 시작 시 한 번만 로드)
 try:
