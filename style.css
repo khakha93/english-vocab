@@ -71,7 +71,7 @@ header {
     display: grid;
     place-items: center;
     padding: 20px;
-    overflow: hidden; /* Let JS handle overflow by adjusting font size */
+    overflow: hidden;
 }
 
 /* Divider for vertical split */
@@ -98,9 +98,9 @@ header {
 }
 
 .word-translation {
-    font-size: 24px; /* 파생어와 동일한 크기 */
+    font-size: 24px; /* 파생어의 한글 뜻과 동일한 크기 */
     font-weight: 600;
-    color: var(--accent); /* 영어 표제어와 동일한 색상 사용 */
+    color: var(--accent); /* 표제어의 영어 단어와 동일한 색상 */
     word-break: break-word;
 }
 

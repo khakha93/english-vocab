@@ -149,18 +149,27 @@ function initViewerPage() {
         }, 1000);
     }
     
+    function setNextTimer() {
+        if (isPaused) return; // 일시정지 중에는 타이머를 설정하지 않음
+        const delay = currentState === 'SHOWING_EN' ? DELAY_EN_TO_KO : DELAY_KO_TO_NEXT;
+        autoAdvanceTimer = setTimeout(advance, delay);
+    }
     function showKorean() {
         if (currentState !== 'SHOWING_EN' || !currentWord) return;
         clearTimeout(autoAdvanceTimer);
         currentState = 'SHOWING_KO';
 
         // 한글 뜻을 위한 스타일로 변경
-        titlePane.classList.remove('word-title');
-        titlePane.classList.add('word-translation');
+        titlePane.className = 'word-translation';
         titlePane.textContent = currentWord.ko;
-        derivPane.textContent = currentWord.deriv_ko || '';
 
-        autoAdvanceTimer = setTimeout(showNextWord, DELAY_KO_TO_NEXT);
+        // deriv_ko의 타입에 따라 올바르게 처리합니다.
+        if (Array.isArray(currentWord.deriv_ko)) {
+            derivPane.textContent = currentWord.deriv_ko.join('\n');
+        } else {
+            // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
+            derivPane.textContent = (currentWord.deriv_ko || '').replace(/, /g, '\n');
+        }
     }
 
     function showNextWord() {
@@ -174,22 +183,38 @@ function initViewerPage() {
 
         currentState = 'SHOWING_EN';
         // 영어 단어를 위한 스타일로 변경
-        titlePane.classList.remove('word-translation');
-        titlePane.classList.add('word-title');
+        titlePane.className = 'word-title';
         titlePane.textContent = currentWord.en;
-        derivPane.textContent = currentWord.deriv_en || '';
-        progressElem.textContent = currentWord.progress;
 
-        autoAdvanceTimer = setTimeout(showKorean, DELAY_EN_TO_KO);
+        // deriv_en의 타입에 따라 올바르게 처리합니다.
+        if (Array.isArray(currentWord.deriv_en)) {
+            derivPane.textContent = currentWord.deriv_en.join('\n');
+        } else {
+            // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
+            derivPane.textContent = (currentWord.deriv_en || '').replace(/, /g, '\n');
+        }
+        progressElem.textContent = currentWord.progress;
+    }
+
+    function advance() {
+        if (currentState === 'SHOWING_EN') {
+            showKorean();
+        } else {
+            showNextWord();
+        }
+        setNextTimer();
     }
 
     // 이벤트 리스너 설정
-    nextBtn.addEventListener('click', showNextWord);
-
-    passBtn.addEventListener('click', () => {
-        passWord(); // '아는 단어' 처리
-        showNextWord(); // 바로 다음 단어로 넘어감
+    nextBtn.addEventListener('click', () => {
+        // 일시정지 중에도 화면 전환은 허용하되, 타이머는 설정하지 않음
+        showNextWord();
+        if (!isPaused) {
+            setNextTimer();
+        }
     });
+    
+    passBtn.addEventListener('click', handleContextualPass);
 
     endBtn.addEventListener('click', () => {
         clearTimeout(autoAdvanceTimer);
@@ -208,23 +233,49 @@ function initViewerPage() {
             pauseBtn.textContent = 'Pause';
             // 현재 상태에 따라 타이머 재시작
             if (currentState === 'SHOWING_EN') {
-                autoAdvanceTimer = setTimeout(showKorean, DELAY_EN_TO_KO);
-            } else if (currentState === 'SHOWING_KO') {
-                autoAdvanceTimer = setTimeout(showNextWord, DELAY_KO_TO_NEXT);
+                setNextTimer();
             }
         }
     });
 
-    screen.addEventListener('click', () => {
-        if (currentState === 'SHOWING_EN') {
-            showKorean();
-        } else if (currentState === 'SHOWING_KO') {
-            showNextWord();
+    screen.addEventListener('click', handleContextualPass);
+
+    // 키보드 이벤트 리스너 추가
+    document.addEventListener('keydown', (event) => {
+        // 다른 입력 필드에 포커스 되어 있을 때는 작동하지 않도록 함
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+
+        if (event.key === 'ArrowRight') {
+            handleContextualPass();
         }
     });
 
+    function handleContextualPass() {
+        passWord(); // 1. 아는 단어로 기록
+        updateProgressUI(); // 2. 진행률 UI 업데이트
+        // 3. 기존의 단계별 학습 진행
+        if (currentState === 'SHOWING_EN') {
+            showKorean();
+        } else {
+            showNextWord();
+        }
+        // 일시정지 상태가 아닐 때만 다음 타이머를 설정
+        if (!isPaused) {
+            setNextTimer();
+        }
+    }
+
+    function updateProgressUI() {
+        const progress = parseInt(sessionStorage.getItem('current_index'), 10) - parseInt(sessionStorage.getItem('start_index'), 10);
+        const passRows = JSON.parse(sessionStorage.getItem('pass_rows'));
+        const alreadyKnow = passRows.length;
+        if (progressElem) {
+            progressElem.textContent = `${progress} (${progress - alreadyKnow})`;
+        }
+    }
     // 초기 단어 표시 및 타이머 시작
     showNextWord();
+    setNextTimer();
     startTimer();
 }
 
@@ -275,13 +326,6 @@ function passWord() {
             sessionStorage.setItem('pass_rows', JSON.stringify(passList));
         }
     }
-    // UI 업데이트 로직 추가 (예: 진행률 다시 표시)
-    const progress = parseInt(sessionStorage.getItem('current_index'), 10) - parseInt(sessionStorage.getItem('start_index'), 10);
-    const passRows = JSON.parse(sessionStorage.getItem('pass_rows'));
-    const alreadyKnow = passRows.length;
-    
-    const progressElem = document.getElementById('progress-display');
-    if(progressElem) progressElem.textContent = `${progress} (${progress - alreadyKnow})`;
 }
 
 /**
