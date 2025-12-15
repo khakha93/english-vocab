@@ -161,7 +161,13 @@ button.primary {
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 18px;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.controls-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -187,6 +193,17 @@ button:active {
     transform: translateY(1px);
 }
 
+button#end-btn {
+    background: #3f1a24;
+    color: #fca5a5;
+    border-color: rgba(248, 113, 113, .3);
+    margin-right: 20px; /* Add extra space after End button */
+}
+
+button#end-btn:hover {
+    background: #5c2231;
+    border-color: rgba(248, 113, 113, .5);
+}
 .screen-info {
     display: flex;
     justify-content: space-between;

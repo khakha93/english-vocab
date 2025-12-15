@@ -125,6 +125,8 @@ function initViewerPage() {
     const passBtn = document.getElementById('pass-btn');
     const endBtn = document.getElementById('end-btn');
     const pauseBtn = document.getElementById('pause-btn');
+    const speakBtn = document.getElementById('speak-btn');
+    const speakToggleBtn = document.getElementById('speak-toggle-btn');
 
     let timerInterval;
     let isPaused = false;
@@ -132,6 +134,7 @@ function initViewerPage() {
     let totalPausedTime = 0;
     let isTimerVisible = true;
     
+    let isAutoSpeakOn = false;
     // 상태 관리를 위한 변수 추가
     let currentState = 'INIT'; // 'INIT', 'SHOWING_EN', 'SHOWING_KO'
     let currentWord = null;
@@ -150,6 +153,18 @@ function initViewerPage() {
         }, 1000);
     }
     
+    /**
+     * 주어진 텍스트를 영어로 발음하는 함수
+     * @param {string} text 발음할 텍스트
+     */
+    function speak(text) {
+        window.speechSynthesis.cancel(); // 이전 발음 취소
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }
+
     function setNextTimer() {
         if (isPaused) return; // 일시정지 중에는 타이머를 설정하지 않음
         const delay = currentState === 'SHOWING_EN' ? DELAY_EN_TO_KO : DELAY_KO_TO_NEXT;
@@ -194,6 +209,11 @@ function initViewerPage() {
             // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
             derivPane.textContent = (currentWord.deriv_en || '').replace(/, /g, '\n');
         }
+
+        if (isAutoSpeakOn) {
+            speak(currentWord.en);
+        }
+
         progressElem.textContent = currentWord.progress;
     }
 
@@ -227,6 +247,18 @@ function initViewerPage() {
         }
     });
 
+    speakToggleBtn.addEventListener('click', () => {
+        isAutoSpeakOn = !isAutoSpeakOn;
+        speakToggleBtn.textContent = isAutoSpeakOn ? '🔊' : '🔇';
+    });
+
+    speakBtn.addEventListener('click', () => {
+        if (currentWord && currentWord.en) {
+            speak(currentWord.en);
+        }
+    });
+
+
 
     passBtn.addEventListener('click', handleContextualPass);
 
@@ -241,10 +273,10 @@ function initViewerPage() {
         if (isPaused) {
             clearTimeout(autoAdvanceTimer);
             pauseStartTime = Date.now() / 1000;
-            pauseBtn.textContent = 'Resume';
+            pauseBtn.textContent = '▶️';
         } else {
             totalPausedTime += (Date.now() / 1000) - pauseStartTime;
-            pauseBtn.textContent = 'Pause';
+            pauseBtn.textContent = '⏸️';
             // 현재 상태에 따라 타이머 재시작
             if (currentState === 'SHOWING_EN') {
                 setNextTimer();
