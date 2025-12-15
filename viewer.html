@@ -1,0 +1,39 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eff-Vocab Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body id="page-viewer">
+    <div class="app">
+        <header>
+            <h1 class="title">Eff-Vocab Viewer</h1>
+        </header>
+
+        <div class="screen-info">
+            <span id="progress-display"></span>
+            <div class="timer-controls">
+                <span id="timer-display">00:00:00</span>
+            </div>
+        </div>
+
+        <div class="screen card">
+            <div class="word-pane">
+                <div id="title-pane" class="word-title"></div>
+            </div>
+            <div class="word-pane">
+                <div id="deriv-pane" class="word-deriv"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="pass-btn">Pass</button>
+            <button id="next-btn">Next</button>
+            <button id="pause-btn">Pause</button>
+            <button id="end-btn">End</button>
+        </div>
+    </div>
+</body>
+</html>

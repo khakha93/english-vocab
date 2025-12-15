@@ -97,6 +97,13 @@ header {
     word-break: break-word; /* Break long words to prevent horizontal overflow */
 }
 
+.word-translation {
+    font-size: 24px; /* 파생어와 동일한 크기 */
+    font-weight: 600;
+    color: var(--accent); /* 영어 표제어와 동일한 색상 사용 */
+    word-break: break-word;
+}
+
 .word-deriv {
     font-size: 24px; /* Base font size, will be adjusted by JS */
     color: var(--txt);
@@ -196,7 +203,7 @@ button:active {
     align-items: center;
 }
 
-#timer-text {
+#timer-display {
     cursor: default; /* No pointer needed on summary page */
     user-select: none; /* Prevent text selection on click */
     width: 80px; /* Give a fixed width to prevent layout shift */

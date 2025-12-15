@@ -1,0 +1,31 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body id="page-summary">
+    <div class="app">
+        <header>
+            <h1 class="title">학습 결과</h1>
+        </header>
+
+        <div class="screen-info">
+            <span id="final-progress-display"></span>
+            <!-- 시간 표시는 아래 요약 컨텐츠에서 하므로 여기서는 제거 -->
+        </div>
+
+        <div class="summary-content">
+            <p>시작 위치: <span id="start-idx"></span></p>
+            <p>총 학습 개수: <span id="total-studied"></span></p>
+            <p>아는 단어 개수: <span id="passed-count"></span></p>
+            <p>총 학습 시간: <span id="total-time"></span></p>
+            <p>총 휴식 시간: <span id="pause-time"></span></p>
+        </div>
+        <div class="controls">
+            <a href="index.html"><button>다시 시작</button></a>
+        </div>
+    </div>
+</body>
