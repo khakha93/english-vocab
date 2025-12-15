@@ -208,6 +208,8 @@ button:active {
     user-select: none; /* Prevent text selection on click */
     width: 80px; /* Give a fixed width to prevent layout shift */
     text-align: right;
+    font-size: 14px; /* Ensure icon and text have similar base size */
+    text-align: center; /* Center the icon and text */
     font-variant-numeric: tabular-nums; /* Ensure numbers have the same width */    
     height: 24px; /* Set a fixed height to prevent layout shift */
     line-height: 24px; /* Vertically center the text/icon inside */

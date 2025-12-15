@@ -130,6 +130,7 @@ function initViewerPage() {
     let isPaused = false;
     let pauseStartTime = 0;
     let totalPausedTime = 0;
+    let isTimerVisible = true;
     
     // 상태 관리를 위한 변수 추가
     let currentState = 'INIT'; // 'INIT', 'SHOWING_EN', 'SHOWING_KO'
@@ -142,7 +143,7 @@ function initViewerPage() {
     function startTimer() {
         const startTime = parseFloat(sessionStorage.getItem('start_time'));
         timerInterval = setInterval(() => {
-            if (!isPaused) {
+            if (!isPaused && isTimerVisible) {
                 const elapsed = (Date.now() / 1000) - startTime - totalPausedTime;
                 timerElem.textContent = new FormattedDuration(elapsed).toString();
             }
@@ -214,6 +215,19 @@ function initViewerPage() {
         }
     });
     
+    timerElem.addEventListener('click', () => {
+        isTimerVisible = !isTimerVisible;
+        if (isTimerVisible) {
+            // 타이머를 다시 표시할 때 현재 시간으로 즉시 업데이트
+            const startTime = parseFloat(sessionStorage.getItem('start_time'));
+            const elapsed = (Date.now() / 1000) - startTime - totalPausedTime;
+            timerElem.textContent = new FormattedDuration(elapsed).toString();
+        } else {
+            timerElem.textContent = '⏲️';
+        }
+    });
+
+
     passBtn.addEventListener('click', handleContextualPass);
 
     endBtn.addEventListener('click', () => {
