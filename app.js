@@ -278,9 +278,7 @@ function initViewerPage() {
             totalPausedTime += (Date.now() / 1000) - pauseStartTime;
             pauseBtn.textContent = '⏸️';
             // 현재 상태에 따라 타이머 재시작
-            if (currentState === 'SHOWING_EN') {
-                setNextTimer();
-            }
+            setNextTimer();
         }
     });
 
