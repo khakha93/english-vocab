@@ -378,6 +378,9 @@ function initViewerPage() {
         if (mode === 'TOEIC') {
             // TOEIC 모드: title에 영어 유지, deriv에 한글 뜻 표시
             titlePane.className = 'word-title'; // 영어 스타일 유지
+            if (currentWord.en.split(' ').some(w => w.length >= 10)) {
+                titlePane.classList.add('long-word');
+            }
             titlePane.textContent = currentWord.en;
             
             derivPane.className = 'word-translation'; // 한글 스타일 적용
@@ -386,6 +389,7 @@ function initViewerPage() {
             // EFF 모드 (기존 동작): title에 한글 뜻, deriv에 파생어 한글
             titlePane.className = 'word-translation';
             titlePane.textContent = currentWord.ko;
+            titlePane.style.fontSize = ''; // 한글 표시 때는 폰트 크기 초기화
 
             // deriv_ko의 타입에 따라 올바르게 처리합니다.
             if (Array.isArray(currentWord.deriv_ko)) {
@@ -409,6 +413,9 @@ function initViewerPage() {
         currentState = 'SHOWING_EN';
         // 영어 단어를 위한 스타일로 변경
         titlePane.className = 'word-title';
+        if (currentWord.en.split(' ').some(w => w.length >= 10)) {
+            titlePane.classList.add('long-word');
+        }
         titlePane.textContent = currentWord.en;
 
         if (mode === 'TOEIC') {

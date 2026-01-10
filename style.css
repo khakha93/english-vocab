@@ -95,6 +95,11 @@ header {
     letter-spacing: .02em;
     color: var(--accent);
     word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    max-width: 100%;
+}
+
+.word-title.long-word {
+    font-size: clamp(24px, 6vw, 48px); /* 10자 이상 단어 포함 시 폰트 크기 축소 */
 }
 
 .word-translation {
@@ -106,7 +111,11 @@ header {
 }
 
 .mode-toeic .word-title {
-    font-size: clamp(32px, 8vw, 56px); /* 최소 32px, 화면의 8%, 최대 56px */
+    font-size: clamp(36px, 8vw, 56px); /* 최소 24px, 화면의 8%, 최대 56px */
+}
+
+.mode-toeic .word-title.long-word {
+    font-size: clamp(20px, 5vw, 40px); /* TOEIC 모드에서 긴 단어는 더 작게 */
 }
 
 .mode-toeic .word-translation {
