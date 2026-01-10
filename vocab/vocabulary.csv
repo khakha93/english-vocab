@@ -1,0 +1,1037 @@
+﻿day,idx,en,ko
+1,1,various,"형. 여러 가지의, 각양 각색의"
+1,2,shift,"동. 옮기다, 이동하다
+명. 교대 근무(시간), 교대조"
+1,3,facility,명. 시설[기관]
+1,4,revise,"동. 변경[수정]하다, 개정하다"
+1,5,flexible,"동. 신축성[융통성] 있는, 유연한"
+1,6,leak,"동. 새다
+명. 새는 곳, 틈"
+1,7,within,전. (특정한 기간/거리) 이내에[안에]
+1,8,refurbish,"동. 새로 꾸미다, 재단장하다"
+1,9,representative,"명. 대표(자), 대리인
+형. 대표하는"
+1,10,notice,"동. 주목하다, 관심을 기울이다
+명. 주목, 알아챔, 공고문"
+1,11,distinguished,"형. 유명한, 성공한, 기품 있는"
+1,12,resident,"명. 거주자, 주민"
+1,13,apprentice,"명. 수습생, 도제
+동. 수습생으로 삼다"
+1,14,significant,"형. 중요한, 의미 있는"
+1,15,punctual,"형. 시간을 지키는, 엄수하는"
+1,16,consecutive,"형. 연이은, 연속적인"
+1,17,merger,명. 합병
+1,18,terminate,"동. 끝나다, 종료되다, 종점에 닿다"
+1,19,laboratory,명. 실험실
+1,20,blueprint,"명. 청사진, 계획"
+1,21,innovative,"형. 획기적인, 혁신적인"
+1,22,prop,"명. 지주, 버팀목, 받침대
+동. (받침대 등으로) 받치다"
+1,23,duplicate,"동. 복사[복제]하다, 사본을 만들다
+형. 똑같은, 꼭 닮은, 사본의"
+1,24,verify,"동. 확인하다, 입증하다"
+1,25,ensure,"동. 보장하다, 반드시 ~하게 하다"
+1,26,place an order,주문하다
+1,27,address problems/issues,문제를 해결하다
+1,28,meet a deadline,마감기한을 맞추다
+1,29,be known for,~로 알려져 있다
+1,30,take measures,"조치를 취하다, 대책을 강구하다"
+2,1,hesitate,"동. 망설이다, 주저하다"
+2,2,attach,"동. 붙이다, 첨부하다"
+2,3,applause,"명. 박수, 갈채"
+2,4,issue,"명. 주제, 쟁점 / 문제 / 호 / 발행
+동. 발부[발행]하다, 발표[공표]하다"
+2,5,domestic,"형. 국내의, 가정(용)의"
+2,6,acquaintance,명. 지인 / 친분 / 지식
+2,7,inclement weather,"나쁜 날씨, 악천후"
+2,8,renowned,"형. 유명한, 명성 있는"
+2,9,fragile,"형. 부서지기 쉬운, 취약한"
+2,10,versatile,"형. 다재다능한, 다용도의"
+2,11,disregard,"동. 무시[묵살]하다
+명. 무시, 묵살"
+2,12,relinquish,"동. 포기하다, 내주다"
+2,13,thrive,동. 번창하다
+2,14,bankrupt,"형. 파산한
+명. 파산자, 파산 선고를 받은 사람"
+2,15,comply,"동. 따르다, 준수하다"
+2,16,readership,명. 독자수[층]
+2,17,decade,명. 10년
+2,18,occasion,"명. 때, 기회, 경우
+동. ~의 원인이 되다"
+2,19,occupation,명. 직업 / 사용 / 거주
+2,20,delegate,"명. 대표(자)
+동. 위임하다"
+2,21,correspondence,"명. 서신, 편지"
+2,22,entrepreneur,"명. 사업가, 기업가"
+2,23,minutes,명. 회의록
+2,24,shortage,명. 부족
+2,25,flourish,"동. 번창하다(=thrive)
+명. 과장된 동작"
+2,26,take advantage of,"~을 이용하다, ~을 기회로 활용하다"
+2,27,make sure that,that 이하를 확실하게 하다
+2,28,be based in,~에 기반을 두다
+2,29,give details about,~에 대해 상세히 설명하다
+2,30,be required to do,~하도록 요구되다
+3,1,durable,"형. 내구성이 좋은, 오래 가는"
+3,2,nomination,"명. 지명, 추천, 임명"
+3,3,steady,"형. 꾸준한
+동. 균형을 잡다, 흔들리지 않다"
+3,4,leading,"형. 가장 중요한, 선두의, 선두적인"
+3,5,qualified,형. 자격이 있는
+3,6,imperative,"형. 반드시 해야 하는, 긴요한"
+3,7,outreach,명. 봉사[원조/지원] 활동
+3,8,assemble,"동. 모이다, 집합시키다 / 조립하다"
+3,9,endorse,"동. 지지하다, 보증[홍보]하다"
+3,10,disclose,"동. 밝히다, 폭로하다, 드러내다"
+3,11,commemorate,동. (중요 인물·사건을) 기념하다
+3,12,terminate,"동. 끝나다, 종점에 달하다"
+3,13,account,"명. 계좌, 장부 / 계정 / 설명
+동. 설명하다(for), 차지하다(for)"
+3,14,extension,명. 확대 / 증축(된) 건물
+3,15,congestion,명. 혼잡
+3,16,substantially,"부. 상당히, 많이"
+3,17,mainly,"부. 주로, 대부분, 대개"
+3,18,accurate,"형. 정확한, 정밀한"
+3,19,complete,"형. 완벽한, 완전한
+동. 완료하다, 끝마치다 / 기입하다"
+3,20,separate,"형. 분리된, 독립된
+동. 분리하다, 갈라지다"
+3,21,patron,"명. 후원자, 고객"
+3,22,testimonial,"명. 추천서, 추천의 글"
+3,23,extend,"동. 더 길게 만들다, 연장하다"
+3,24,power outage,명. 정전
+3,25,avid,"형. 열심인, 열렬한, 열망하는"
+3,26,make a mistake,"실수하다, 잘못 생각하다"
+3,27,respond to,~에 응답/대응하다
+3,28,conveniently located,편리한 위치에 있는
+3,29,highly regard,~을 중시하다
+3,30,on duty,근무 중
+4,1,culinary,"형. 요리의, 음식의"
+4,2,sweep,"동. 쓸다, 청소하다"
+4,3,pedestrian,명. 보행자
+4,4,dig,"동. 파다, 파내다, 캐다"
+4,5,pavement,"명. 인도, 보도, 포장면"
+4,6,alternative,"명. 대안, 선택 가능한 것
+형. 대체 가능한, 대안이 되는"
+4,7,beverage,명. 음료
+4,8,refreshment,"명. 다과, 가벼운 식사"
+4,9,accelerate,"동. 가속화되다, 가속화하다"
+4,10,through,"전. ~을 통해 / 지나[거쳐/통과하여]
+부. 통과하여"
+4,11,mention,"동. 언급하다, 말하다
+명. 언급[거론]"
+4,12,year-end,"명. 연말
+형. 연말의"
+4,13,appointment,"명. 약속 / 임명, 지명"
+4,14,misplace,동. 제자리에 두지 않다
+4,15,schedule conflict,명. 일정 충돌
+4,16,accommodation,"명. 거처, 숙소, 시설"
+4,17,demonstration,"명. 시위, 데모, 시연"
+4,18,regard,"동. ~을 ···으로 여기다
+명. 관심 / 존경"
+4,19,highly,"부. 크게, 대단히, 매우"
+4,20,promptly,"부. 지체 없이, 즉시"
+4,21,mow,"동. 깎다, 베다"
+4,22,exhibition,"명. 전시회, 전시"
+4,23,branch,"명. 지사, 분점"
+4,24,flagship store,"명. 본점, 주력 상점"
+4,25,win,"동. 이기다, 따다[쟁취하다]"
+4,26,in bulk,대량으로
+4,27,in accordance with,"~에 따라서, ~에 부합되게"
+4,28,adhere to,"~을 고수하다, 지키다"
+4,29,reserve the right to do,~할 권리가 있다
+4,30,come up with,"제시[제안]하다, 떠올리다"
+5,1,retirement,"명. 은퇴, 퇴직"
+5,2,inaugurate,동. 취임하게 하다
+5,3,probation,"명. 보호 관찰, 수습(기간)"
+5,4,consequently,"부. 그 결과, 따라서"
+5,5,relocate,동. 이전[이동]하다[시키다]
+5,6,replacement,"명. 교체, 대체 / 후임자"
+5,7,broaden,"동. 넓어지다, 퍼지다"
+5,8,immediately,"부. 즉시, 즉각, 곧바로"
+5,9,appraise,동. 살피다 / (업무를) 평가하다
+5,10,enforce,동. 강요하다 / (법률 등을) 집행하다
+5,11,abruptly,"부. 갑자기, 불쑥, 뜻밖에"
+5,12,severe,"형. 극심한, 심각한"
+5,13,mutually,"부. 서로, 상호 간에"
+5,14,implement,"동. 시행하다
+명. 도구, 기구"
+5,15,sanitize,"동. 위생 처리하다, 살균하다"
+5,16,cease,"동. 중단되다, 그치다, 중단시키다"
+5,17,evaluate,"동. 평가하다, 감정하다"
+5,18,monthly,"형. 한 달에 한 번의
+부. 매월, 다달이"
+5,19,attainable,"형. 이룰 수 있는, 달성할 수 있는"
+5,20,currency,명. 통화
+5,21,interest rate,"명. 금리, 이율"
+5,22,in advance,미리
+5,23,apparently,"부. 듣자 하니, 보아 하니"
+5,24,tend,"동. 경향이 있다 / 돌보다, 보살피다"
+5,25,modification,"명. 수정, 변경"
+5,26,take measures,"조치를 취하다, 대책을 강구하다"
+5,27,conduct a survey,설문 조사를 하다
+5,28,be responsible for,~에 책임이 있다
+5,29,reach an agreement,합의에 도달하다
+5,30,refrain from,~을 삼가다
+6,1,procedure,"명. 절차, 방법"
+6,2,capacity,"명. 용량, 수용력"
+6,3,lightweight,"형. 가벼운
+명. 라이트급 선수"
+6,4,eventually,"부. 결국, 종내"
+6,5,complex,"형. 복잡한
+명. 복합 건물"
+6,6,timely,"형. 시기적절한, 때맞춘"
+6,7,stringent,"형. 엄중한, 긴박한, 절박한"
+6,8,emphasis,명. 강조
+6,9,operation,"명. 수술, 작전 / 기업"
+6,10,available,"형. 구할 수 있는, 이용할 수 있는"
+6,11,factor,"명. 요소, 요인"
+6,12,feasible,형. 실현 가능한
+6,13,impeccable,형. 흠잡을 데 없는
+6,14,redeemable,형. (현금 상품과) 교환할 수 있는
+6,15,findings,명. 조사 결과물
+6,16,garment,"명. 의복, 옷"
+6,17,property,"명. 재산, 소유물, 부동산"
+6,18,catering,"명. 음식 공급, 출장뷔페업체 서비스"
+6,19,conglomerate,"명. 복합 기업, 대기업"
+6,20,vendor,명. 상인
+6,21,doubt,"명. 의심, 의문
+동. 의심하다, 확신하지 못하다"
+6,22,malicious,"형. 악의적인, 적의 있는"
+6,23,complimentary,"형. 무료의, 칭찬하는"
+6,24,inquiry,"명. 질문, 문의 / 연구, 탐구"
+6,25,deliberation,명. 숙고 / 신중함
+6,26,put off,"연기하다, 미루다"
+6,27,look for,찾다
+6,28,volunteer for,~에 지원하다
+6,29,be willing to do,"기꺼이 ~하다, 흔쾌히 ~하다"
+6,30,file a complaint,항의를 제기하다
+7,1,willing,"형. 기꺼이 하는, 자발적인, 꺼리지 않는"
+7,2,noteworthy,형. 주목할 만한
+7,3,supplementary,"형. 보충의, 추가의"
+7,4,dispute,"명. 분쟁, 분규, 논란
+동. 반박하다, 이의를 제기하다"
+7,5,eager,"형. 열렬한, 간절히 바라는, 열심인"
+7,6,utility fee,공공요금
+7,7,venue,명. 장소
+7,8,undergo,동. (변화나 안 좋은 일 등을) 겪다
+7,9,specialize,"동. ~을 전공하다, 전문적으로 하다"
+7,10,compile,"동. 엮다, 편집[편찬]하다"
+7,11,apron,명. 앞치마
+7,12,conventional,"형. 관습적인, 관례적인"
+7,13,robust,"형. 원기 완성한, 팔팔한, 튼튼한, 강력한"
+7,14,secondhand,"형. 간접의, 중고의"
+7,15,cautious,"형. 조심스러운, 신중한"
+7,16,crack,"동. 갈라지다, 금이 가다, 깨지다
+명. 금, 틈"
+7,17,tremendous,"형. 엄청난, 굉장한, 대단한"
+7,18,simplify,"동. 간소화하다, 단순화하다"
+7,19,double-book,동. 이중으로 예약을 받다
+7,20,remote control,"명. 원격 조종, 리모컨"
+7,21,breach,"명. 위반
+동. 위반하다, 어기다"
+7,22,portable,"형. 휴대가 쉬운, 휴대용의
+명. 휴대용 제품"
+7,23,seasoned,"형. 경험 많은, 노련한 / 양념을 한"
+7,24,receipt,"명. 영수증, 수령"
+7,25,fountain,명. 분수
+7,26,at a reasonable price,합당한 가격으로
+7,27,come with,~이 딸려 있다
+7,28,out of order,고장 난
+7,29,be vulnerable to,"~에 영향을 받기 쉽다, 취약하다"
+7,30,in light of,"~을 고려하여, ~에 비추어"
+8,1,tidy,"형. 깔끔한, 잘 정돈된
+동. 정돈하다, 정리하다"
+8,2,flyer,명. 전단지(print -) / 비행기 승객
+8,3,slightly,"부. 약간, 조금"
+8,4,excursion,"명. 여행, 외도"
+8,5,lodging,"명. 임시 숙소, 하숙"
+8,6,gifted,형. 재능이 있는
+8,7,transparent,"형. 투명한, 명백한"
+8,8,sheer,"형. 순전한, 순수한"
+8,9,thoroughly,"부. 대단히, 완전히, 철저히"
+8,10,unanimously,부. 만장일치로
+8,11,meticulous,"형. 꼼꼼한, 세심한"
+8,12,itinerary,명. 여행 일정표
+8,13,keen,"형. 간절히 하고 싶은, 열망하는"
+8,14,cast,"동. (그림자를) 드리우다
+명. (연극이나 영화의) 출연자들"
+8,15,voucher,"명. 상품권, 할인권, 쿠폰"
+8,16,expenditure,"명. 지출, 비용, 경비"
+8,17,reimbursement,"명. 상환, 변제"
+8,18,remnant,"명. 남은 부분, 나머지"
+8,19,collaborate,"동. 협력하다, 공동으로 작업하다"
+8,20,wing,"명. 날개, 부속 건물, 동
+동. 날아가다, 신속히 보내지다"
+8,21,alert,"형. 기민한, 경계하는
+동. 알리다, 경보를 발하다"
+8,22,relevant,"형. 관련 있는, 적절한"
+8,23,decline,"명. 감소, 하락, 축소
+동. 줄어들다, 감소하다 / 거절하다"
+8,24,excavation,"명. 발굴, 발굴지"
+8,25,urgent,"형. 긴급한, 시급한"
+8,26,on behalf of,"~을 대신하여, ~을 대표하여"
+8,27,make up for,"(손실 따위를) 보상하다, 보전하다"
+8,28,go over,"조사하다, 검토하다"
+8,29,participate in,"~에 참가하다, 참여하다"
+8,30,take into account,~을 고려하다
+9,1,genuine,"형. 진짜의, 진품의"
+9,2,inevitable,"형. 불가피한, 필연적인"
+9,3,postpone,"동. 연기하다, 미루다"
+9,4,ingredient,"명. 재료, 성분"
+9,5,vessel,"명. 선박, 배 / 그릇, 용기 / (동물의) 혈관"
+9,6,budget,"명. 예산, 비용
+동. 예산을 세우다"
+9,7,vacant,"형. 비어 있는, 사람이 없는, 결원의"
+9,8,dense,"형. 빽빽한, 밀집한, 짙은"
+9,9,notable,"형. 주목할 만한, 눈에 띄는"
+9,10,roughly,"부. 대략, 거의, 거칠게"
+9,11,emerging,"형. 최근 생겨난, 최근에 만들어진"
+9,12,demolish,동. (건물을) 철거하다 / (사상이나 이론을) 뒤집다
+9,13,intimate,"형. 친밀한, 사적인"
+9,14,workload,"명. 업무량, 작업량"
+9,15,last-minute,"형. 마지막 순간의, 막바지의"
+9,16,fundamental,"형. 근본적인, 핵심적인
+명. 기본 원칙, 핵심"
+9,17,considerate,"형. 사려 깊은, 배려하는"
+9,18,hospitality,"명. 환대, 후대"
+9,19,destination,"명. 목적지, 도착지"
+9,20,withdraw,동. 철수하다 / (계좌에서 돈을) 인출하다
+9,21,in person,"직접, 몸소"
+9,22,route,"명. 길, 경로, 노선
+동. (특정 루트를 따라) 보내다, 전송하다"
+9,23,detour,"명. 우회로
+동. 둘러 가다, 우회하다"
+9,24,demand,"명. 요구 사항
+동. 요구하다, 필요로 하다"
+9,25,secure,"형. 안심하는, 안전한
+동. 획득[확보]하다 / 고정시키다"
+9,26,replace A with B,A를 B로 교체하다
+9,27,let A know B,A에게 B를 알게 하다
+9,28,unless otherwise noted,달리 언급이 없으면
+9,29,as for,~에 관해 말하면
+9,30,run behind schedule,일정에 뒤처지다
+10,1,advanced,"형. 선진의, 고급의"
+10,2,permanent,"형. 영구적인, 영속적인"
+10,3,original,"형. 원래의, 본래의, 독창적인
+명. 원본"
+10,4,intricate,형. 복잡한
+10,5,obsolete,"형. 더 이상 쓸모가 없는, 한물간, 구식의"
+10,6,state-of-the-art,"형. 최첨단의, 최신식의"
+10,7,stunning,"형. 굉장히 아름다운[멋진], 깜짝 놀랄"
+10,8,profound,"형. 엄청난, 깊은, 심오한"
+10,9,rubbish,명. 쓰레기
+10,10,dwindle,동. 줄어들다
+10,11,appeal,"명. 항소, 매력
+동. 항고하다, 관심을 끌다, 매력적이다"
+10,12,vertical,"형. 수직의, 세로의
+명. 수직(선면)"
+10,13,horizon,"명. 수평선, 지평선, 시야, 전망"
+10,14,ergonomic,형. 인체 공학의
+10,15,keynote,명. (책이나 연설 등의) 주안점[기조]
+10,16,resign,"동. 사직하다, 물러나다"
+10,17,refrain,동. 삼가다
+10,18,reflect,"동. (상을) 비추다, 반사하다 / 반영하다"
+10,19,deteriorate,"동. 악화되다, 더 나빠지다"
+10,20,rigorous,"형. 철저한, 엄격한"
+10,21,diploma,"명. 졸업장, 수료증"
+10,22,qualification,"명. 자격[자격증], 자질, 능력"
+10,23,pharmacy,"명. 약국, 조제실"
+10,24,outskirt,"명. 변두리, 교외 / 한계, 빠듯함"
+10,25,waive advanced,동. (권리 등을) 포기하다
+10,26,within walking distance,도보로 갈 수 있는 거리 이내에
+10,27,under construction,"공사 중인, 건설 중인"
+10,28,on time,"정각에, 시간을 어기지 않고"
+10,29,newly hired,신규로 채용된
+10,30,thoroughly examine,면밀하게 검사하다
+11,1,throughout,"전. 도처에, 쭉, 내내"
+11,2,quickly,"부. 빨리, 빠르게"
+11,3,publicize,"동. 알리다, 광고[홍보]하다"
+11,4,affect,동. 영향을 미치다
+11,5,party,"명. 정당, 단체
+동. 파티를 하다"
+11,6,initial,"형. 처음의, 초기의
+명. 첫 글자"
+11,7,guarantee,"명. 품질 보증서
+동. 보장하다, 품질 보증을 하다"
+11,8,pharmaceutical,"형. 제약의, 약학의
+명. 약, 제약"
+11,9,medicine,"명. 의학, 의술, 약, 약물"
+11,10,investigate,동. 조사하다
+11,11,reasonably,"부. 상당히, 꽤, 합리적으로"
+11,12,portion,"명. 부분, 일부, 1인분"
+11,13,bid,"동. 값을 부르다, 입찰에 응하다
+명. 가격 제시, 호가, 응찰"
+11,14,forbid,동. 금지하다
+11,15,struggle,"동. 투쟁하다, 몸부림치다
+명. 투쟁, 분투"
+11,16,scented,"형. 강한 향기가 나는, 향기로운"
+11,17,assistant,"명. 조수, 보조원"
+11,18,troubleshooting,명. 고장의 수리
+11,19,exceed,"동. 넘다, 초과하다, 초월하다"
+11,20,via,전. 통하여
+11,21,ownership,명. 소유(권)
+11,22,indefinitely,부. 무기한으로
+11,23,absolute,"형. 완전한, 완벽한
+명. 절대적인 것"
+11,24,complicated,형. 복잡한
+11,25,distinctive,형. 독특한
+11,26,temporarily out of stock,일시적으로 재고 품절인
+11,27,cope with,"~에 대처하다, 대응하다"
+11,28,stop by,가는 길에 들르다
+11,29,concentrate on,~에 집중하다
+11,30,mutually beneficial,상호 이익이 되는
+12,1,chronic,"형. 만성적인, 만성 질환을 앓고 있는"
+12,2,accountant,명. 회계사
+12,3,shortlist,명. 최종 후보자 명단
+12,4,heritage,명. 유산
+12,5,fuel,"명. 연료
+동. 연료를 공급하다, 기름을 넣다"
+12,6,renewable,형. 재생 가능한
+12,7,customized,형. 개개인의 요구에 맞춘
+12,8,ongoing,형. 계속 진행 중인
+12,9,rare,"형. 드문, 희귀한, 진귀한"
+12,10,resume,"동. 재개하다, 다시 시작하다"
+12,11,allegation,"명. 혐의, 주장"
+12,12,inclination,"명. 의향, 성향"
+12,13,persistence,"명. 고집, 지속됨"
+12,14,valid,"형. 유효한, 정당한, 타당한"
+12,15,safety gear,명. 안전 장치
+12,16,forklift,명. 지게차
+12,17,criteria,"명. 표준, 기준"
+12,18,impact,"명. 영향, 충격
+동. 영향을 주다"
+12,19,obtain,"동. 얻다, 입수하다"
+12,20,ignore,동. 무시하다
+12,21,affordable,"형. 감당할 수 있는, 적절한"
+12,22,tolerate,"동. 용인하다, 참다, 견디다"
+12,23,designated,형. 지정된
+12,24,grateful,"형. 고마워하는, 감사하는"
+12,25,skilled,"형. 숙련된, 노련한"
+12,26,confirm one's reservation,예약을 확인하다
+12,27,conduct a poll,여론 조사를 하다
+12,28,be valid for,"~에 유효하다, 타당하다"
+12,29,be similar to+명사,~와 비슷하다
+12,30,be aware that,~라는 것을 알다
+13,1,pace,"명. 속도
+동. 속도를 유지하다, 자신에게 맞는 속도를 찾다"
+13,2,dwell,"동. 살다, 거주하다"
+13,3,threaten,"동. 협박하다, 위태롭게 하다"
+13,4,tight,"형. 단단한, 꽉 조여 있는
+부. 단단히, 꽉"
+13,5,quote,"동. 인용하다, 전달하다"
+13,6,ideal,"형. 이상적인, 가장 알맞은
+명. 이상적인 것[사람]"
+13,7,certificate,"명. 증서, 증명서"
+13,8,outline,"동. 개요를 서술하다, 윤곽을 보여주다
+명. 개요, 윤곽"
+13,9,distribute,"동. 나누어주다, 분배하다, 유통시키다"
+13,10,mortgage,"명. 대출(금)
+동. 저당 잡히다"
+13,11,excessive,"형. 지나친, 과도한"
+13,12,organization,"명. 조직, 단체"
+13,13,outgrow,"동. 보다 더 커지다, 많아지다"
+13,14,inhibit,"동. 억제하다, 저해하다"
+13,15,improvise,동. 즉흥적으로 하다
+13,16,remedy,"명. 처리 방안, 해결책, 치료약
+동. 개선하다, 교정하다"
+13,17,diabetes,명. 당뇨병
+13,18,high-profile,형. 세간의 이목을 끄는
+13,19,lingering,"형. 오래 끄는, 오래 가는"
+13,20,fair,"형. 타당한, 공정한, 공평한"
+13,21,injury,"명. 부상, 상처, 피해"
+13,22,bistro,명. 작은 식당
+13,23,celebrity,명. 유명 인사
+13,24,hinder,"동. 저해하다, 방해하다"
+13,25,impose,"동. 도입하다, 시행하다, 부과하다"
+13,26,be eligible for,~에 대한 자격이 있다
+13,27,run short of,~이 부족하다
+13,28,be equipped with,~을 갖추다
+13,29,in observance of,~을 준수하여
+13,30,on purpose,고의로
+14,1,regulation,"명. 규정, 규제"
+14,2,shorten,"동. 짧게 하다, 단축하다, 짧아지다"
+14,3,sort,"명. 종류, 부류, 유형
+동. 분류하다, 구분하다, 해결하다"
+14,4,insurance,명. 보험
+14,5,intermediate,"형. 중간의, 중급의
+명. 중급자"
+14,6,exotic,"형. 외국의, 이국적인"
+14,7,flood,"명. 홍수 / 쇄도, 폭주
+동. 침수되다, 물에 잠기다"
+14,8,declaration,"명. 선언, 공표"
+14,9,withdraw,"동. 철수하다, 철회하다 / 인출하다"
+14,10,administrative,"형. 행정상의, 관리상의"
+14,11,amicable,"형. 우호적인, 원만한"
+14,12,recurring,형. 되풀이하여 발생하는
+14,13,cosmetic,"명. 화장품
+형. 성형의"
+14,14,prominent,"형. 중요한, 유명한, 눈에 잘 띄는"
+14,15,trigger,"명. 방아쇠, 도화선
+동. 촉발시키다, 작동시키다"
+14,16,souvenir,명. 기념품
+14,17,wire,"명. 철사, 전선
+동. 연결하다, 송금하다"
+14,18,enclosed,"형. 동봉된, 에워싸인"
+14,19,amenity,명. 생활 편의 시설
+14,20,sip,"동. 홀짝이다, 조금씩 마시다"
+14,21,wind turbine,명. 풍력 발전용 터빈
+14,22,boast,"동. 뽐내다, 자랑하다
+명. 자랑"
+14,23,retail,"명. 소매
+동. 소매하다"
+14,24,payroll,"명. 급여 대상자 명단, 급여 지불 총액"
+14,25,immaculate,"형. 티 하나 없이 깔끔한, 오류가 전혀 없는"
+14,26,for your convenience,편의를 위해서
+14,27,under pressure,"압력하에, 부담을 가지고"
+14,28,with ease,쉽게
+14,29,apologize for 이유,~에 대해 사과하다
+14,30,lay off,해고하다
+15,1,activate,"동. 작동시키다, 활성화시키다"
+15,2,archive,"명. 기록 보관소
+동. 기록 보관소에 보관하다"
+15,3,generous,"형. 후한, 너그러운"
+15,4,compensation,"명. 보상(금), 이득"
+15,5,expedite,동. 더 신속히 처리하다
+15,6,solicit,"동. 간청하다, 요청하다"
+15,7,prestigious,"형. 명망 있는, 일류의"
+15,8,prolific,"형. 다작하는, 열매를 많이 맺는"
+15,9,eligible,"형. ~을 가질 수 있는, 적격의, 적임의, 바람직한"
+15,10,attraction,"명. 끌림, 명소, 명물, 매력"
+15,11,intermittently,부. 간헐적으로
+15,12,furnishing,"명. 가구, 비품"
+15,13,courtesy,"명. 공손함, 정중함
+형. 무료의, 서비스의"
+15,14,carousel,명. 수하물 컨베이어 벨트
+15,15,opposite,"형. 건너편의, 다른 쪽의
+명. 반대, 반의어"
+15,16,launch,"동. 시작하다, 개시하다, 착수하다, 출시하다
+명. 개시, 출시, 발사"
+15,17,trim,"동. 다듬다, 손질하다
+명. 다듬기, 장식"
+15,18,objective,"명. 목표, 목적
+형. 객관적인, 실재하는"
+15,19,assorted,"형. 여러 가지의, 갖은"
+15,20,knowledgeable,"형. 아는 것이 많은, 지식 있는, 총명한"
+15,21,restriction,"명. 제한, 규제, 제약, 구속"
+15,22,authentic,"형. 진짜의, 진품인"
+15,23,prepaid,"형. 선불된, 선납된"
+15,24,acceptable,"형. 용인되는, 받아들일 수 있는"
+15,25,scope,"명. 범위, 기회
+동. 자세히 살피다"
+15,26,in response to,~에 응하여
+15,27,proximity to,~에의 근접성
+15,28,in duplicate,2통으로
+15,29,account for,"설명하다, 처리하다"
+15,30,be aware of,"~을 알다, 인지하다"
+16,1,rapidly,부. 빠르게
+16,2,decorative,"형. 장식이 된, 장식용의"
+16,3,briefly,"부. 잠시, 간단히"
+16,4,talented,"형. 재능이 있는, 재주가 있는"
+16,5,perk,명. (급료 이외의) 특전
+16,6,thermometer,"명. 온도계, 체온계"
+16,7,appliance,명. 기기
+16,8,suit,"명. 정장, 한 세트
+동. 어울리다, 맞다"
+16,9,apologize,동. 사과하다
+16,10,associated,형. 관련된
+16,11,enormous,"형. 막대한, 거대한"
+16,12,obvious,"형. 분명한, 명백한"
+16,13,conceal,"동. 감추다, 숨기다"
+16,14,dietary,"형. 규정식의, 식이 요법의
+명. 규정량"
+16,15,preference,"명. 선호, 애호"
+16,16,ornament,"명. 장신구, 장식품"
+16,17,down payment,"명. (할부금의) 착수금, 계약금"
+16,18,devastate,"동. 완전히 파괴하다, 엄청난 충격을 주다"
+16,19,enactment,"명. 법률 제정, 입법"
+16,20,convene,"동. 소집하다, 화합하다"
+16,21,clearance,"명. (불필요한 것) 없애기, 정리"
+16,22,retreat,"동. 후퇴하다, 철수하다
+명. 후퇴, 철수, 퇴각"
+16,23,expense,"명. 돈, 비용"
+16,24,closely,"부. 밀접하게, 면밀히"
+16,25,handle,"동. 다루다, 처리하다
+명. 손잡이"
+16,26,put emphasis on,~을 강조하다
+16,27,be sufficient in supply,공급 물량이 넉넉하다
+16,28,pending decision,미결 문제
+16,29,dramatically increase,극적으로 증가하다
+16,30,gradually decline,"점차 저하하다, 하락하다"
+17,1,crate,명. (물품 운송용 대형 나무) 상자
+17,2,vegetarian,명. 채식주의자
+17,3,majority,"명. 다수, 가장 많은 수"
+17,4,faithful,"형. 충실한, 충직한"
+17,5,negotiate,"동. 협상하다, 교섭하다, 타결하다"
+17,6,exactly,"부. 정확히, 꼭, 틀림없이"
+17,7,heavily,"부. (양이나 정도가) 심하게, 아주 많이"
+17,8,symbolize,동. 상징하다
+17,9,strictly,"부. 엄격히, 엄하게, 절대적으로"
+17,10,functional,"형. 기능 위주의, 실용적인"
+17,11,inventory,"명. 물품 목록, 재고(품)
+동. ~의 목록을 만들다"
+17,12,productivity,명. 생산성
+17,13,restore,"동. 회복시키다, 복원[복구]하다"
+17,14,sacrifice,"명. 희생, 희생물, 제물"
+17,15,exclusive,"형. 독점적인, 전용의
+명. 독점 기사"
+17,16,approval,"명. 인정, 찬성, 승인"
+17,17,identify,"동. 확인하다, 찾다, 알아보게 하다"
+17,18,recognition,"명. 인식, 인정, 승인, 표창"
+17,19,friendly,"형. 친절한, 우호적인, 상냥한"
+17,20,risk,"명. 위험, 위험 요소
+동. 위태롭게 하다"
+17,21,authorization,"명. 허가, 인가, 허가(증)"
+17,22,patient,"명. 환자
+형. 참을성 있는, 인내심 있는"
+17,23,intend,"동. 의도하다, 작정하다"
+17,24,include,동. 포함하다
+17,25,previous,"형. 이전의, 바로 앞의"
+17,26,collaborate on,~에 대해 협동하다
+17,27,depend on,~에 의존하다
+17,28,lead to,~로 이어지다
+17,29,inform/notify/remind A of B,A에게 B에 대해서 알리다
+17,30,name A to B,A를 B로 임명하다
+18,1,release,"동. 풀어주다, 석방[해방]하다
+명. 석방 / 발표[공개] / 개봉"
+18,2,circulate,"동. 순환하다, 유포하다"
+18,3,drawing,"명. 그림, 스케치, 제비뽑기, 추첨"
+18,4,controversy,명. 논란
+18,5,evidence,"명. 증거, 흔적"
+18,6,biodegradable,형. 생분해성의
+18,7,asset,"명. 자산, 재산"
+18,8,specific,"형. 구체적인, 명확한, 특정한"
+18,9,relative,"형. 비교상의, 상대적인
+명. 친척, 동족"
+18,10,garage,"명. 차고, 주차장
+동. 차고에 넣다"
+18,11,cabin,"명. (배의) 객실, 선실, (항공기의) 선실, 오두막집"
+18,12,selection,"명. 선발, 선정, 선택"
+18,13,install,"동. 설비하다, 설치하다"
+18,14,reduction,"명. 축소, 삭감, 감소, 인하"
+18,15,range,"명. 범위, 다양성
+동. A에서 B까지 다양하다, 포괄하다"
+18,16,despite,전. ~에도 불구하고
+18,17,among,"전. ~에 둘러싸인, ~의 가운데, 사이에"
+18,18,proudly,부. 자랑스럽게
+18,19,near,"형. 가까운
+부. 가까이"
+18,20,solid,"형. 단단한, 고체의, 견고한
+명. 고체"
+18,21,statue,명. 조각상
+18,22,transmit,"동. 전송하다, 전도하다"
+18,23,prolong,"동. 연장시키다, 연장하다"
+18,24,abolish,"동. (법률, 제도, 조직 등을) 폐지하다"
+18,25,committed,"형. 헌신적인, 열성적인"
+18,26,take A into consideration,A를 고려하다
+18,27,be aimed at,~을 목표로 삼다
+18,28,last-minute change,막바지 변경
+18,29,extensive knowledge,해박한 지식
+18,30,confidential document,기밀 서류
+19,1,entitle,"동. 자격을 주다, 권리를 주다"
+19,2,fierce,"형. 격렬한, 맹렬한, 극심한"
+19,3,mark,"동. 표시하다, 기념[축하]하다
+명. 자국[흔적], 표시"
+19,4,solidify,"동. 굳어지다, 확고해지다"
+19,5,inspection,"명. 점검, 검사, 검토"
+19,6,interfere,"동. 간섭하다, 개입하다, 참견하다"
+19,7,proceed,"동. 진행하다, 계속해서 ~을 하다"
+19,8,prohibit,"동. 금지하다, 하지 못하게 하다"
+19,9,offering,"명. 제공된 것, 제물"
+19,10,arguably,"부. 주장하건대, 거의 틀림없이"
+19,11,distribution,"명. 분배, 분포, 배부, 배급"
+19,12,scenic,형. 경치가 좋은
+19,13,reluctant,"형. 꺼리는, 마지못한, 주저하는"
+19,14,skeptical,"형. 회의적인, 의심 많은"
+19,15,subtle,"형. 미묘한, 교묘한, 절묘한"
+19,16,intensity,"명. 강렬함, 격렬함, 강도"
+19,17,duration,"명. 지속, (지속되는) 기간"
+19,18,interval,"명. 간격, 중간 휴식 시간"
+19,19,frequency,"명. 빈도, 잦음, 주파수"
+19,20,primary,"형. 주된, 주요한, 최초의"
+19,21,prior,"형. 사전의, 우선하는"
+19,22,acquire,"동. 습득하다, 얻다, 획득하다"
+19,23,potential,"형. 가능성이 있는, 잠재적인
+명. 가능성, 잠재력"
+19,24,estimate,"명. 추정, 견적서
+동. 추산[추정]하다"
+19,25,circumstance,"명. 환경, 상황, 형편[사정]"
+19,26,distinguished professor,저명한 교수
+19,27,demanding supervisor,까다로운 상사
+19,28,have technical problems,기술적인 문제가 있다
+19,29,as mentioned earlier,앞서 말한 바와 같이
+19,30,be filled with,~로 가득 차다
+20,1,generate,"동. 발생시키다, 만들어 내다"
+20,2,anticipate,"동. 예상하다, 예측하다, 기대하다"
+20,3,adequate,"형. 충분한, 적절한"
+20,4,predict,동. 예측[예견]하다
+20,5,arbitrary,"형. 임의적인, 제멋대로인, 독단적인"
+20,6,advocate,"동. 지지하다, 옹호하다
+명. 옹호자, 지지자, 변호사"
+20,7,mandatory,"형. 법에 정해진, 의무적인"
+20,8,mute,"형. 무언의, 말없는"
+20,9,ample,"형. 충분한, 풍만한"
+20,10,assess,"동. 재다, 평가하다"
+20,11,judge,"명. 판사, 심판, 심사위원
+동. 판단하다, 추정하다"
+20,12,appearance,"명. (겉)모습, 외모, 출현"
+20,13,ordinary,"형. 보통의, 일상적인, 평범한"
+20,14,physical,"형. 육체[신체]의, 물질의
+명. 신체검사, 건강 진단"
+20,15,lengthy,"형. 너무 긴, 장황한, 지루한"
+20,16,essential,"형. 필수적인, 본질[근본]적인
+명. 필수적인 것, 핵심 사항, 요점"
+20,17,disease,명. 질병. 질환
+20,18,agriculture,명. 농업
+20,19,confusion,"명. 혼란, 혼동, 당혹"
+20,20,rash,"명. 발진, 다발, 빈발
+형. 경솔한, 성급한"
+20,21,registration,명. 등록
+20,22,strategy,"명. 계획, 전략"
+20,23,enhance,"동. 강화하다, 향상시키다"
+20,24,constant,"형. 끊임없는, 거듭되는, 변함없는"
+20,25,encounter,"동. 맞닥뜨리다
+명. 만남, 조우, 접촉"
+20,26,close a deal,"계약을 체결하다, 거래를 매듭짓다"
+20,27,miss a deadline,기한을 놓치다
+20,28,attract qualified applicants,자격을 갖춘 지원자를 유치하다
+20,29,for a limited time only,한정된 기간 동안만
+20,30,on installment,할부로
+21,1,manipulate,"동. 조종하다, 다루다, 조작하다"
+21,2,foster,"동. 조성하다, 발전시키다, 위탁 양육하다"
+21,3,eliminate,"동. 제거하다, 삭제하다"
+21,4,eradicate,"동. 근절하다, 뿌리 뽑다"
+21,5,extensive,"형. 광범위한, 아주 넓은"
+21,6,diner,명. 식사하는 손님
+21,7,turnout,"명. 참가자의 수, 투표자의 수"
+21,8,adjourn,"동. 휴정하다, 휴회하다"
+21,9,entire,"형. 전체의, 온 ~"
+21,10,narrow,"형. 좁은, 아슬아슬하게"
+21,11,broad,형. 넓은
+21,12,apprehensive,"형. 걱정되는, 불안한"
+21,13,commensurate,"형. 어울리는, 상응하는"
+21,14,prevalent,"형. 일반적인, 널리 퍼져 있는"
+21,15,contemporary,"형. 동시대의, 당대의, 현대의
+명. 동년배"
+21,16,dull,"형. 따분한, 흐릿한, 칙칙한
+명. 둔해지다, 약해지다"
+21,17,alleviate,동. 완화하다
+21,18,tedious,"형. 지루한, 싫증나는"
+21,19,outdated,형. 구식인
+21,20,sharp,"형. 날카로운, 급격한
+부. (특정 시간 표현 뒤) 정각"
+21,21,reinforce,"동. 강화하다, 보강하다"
+21,22,ramp,명. 경사로
+21,23,employ,"동. 고용하다, 이용하다"
+21,24,correctly,부. 현재
+21,25,engagement,"명. 약혼, 업무"
+21,26,boost sales,매출을 증대시키다
+21,27,establish a partnership,파트너십을 구축하다
+21,28,allocate budget,예산을 할당하다
+21,29,monitor financial performance,재무 성과를 모니터링하다
+21,30,resolve conflicts,갈등을 해결하다
+22,1,identical,"형. 동일한, 똑같은"
+22,2,definitely,"부. 확실히, 분명히"
+22,3,historically,부. 역사적으로
+22,4,periodically,부. 주기적으로
+22,5,missing,"형. 없어진, 분실된"
+22,6,scaffolding,명. (건축 공사장의) 비계
+22,7,respectfully,부. 정중하게
+22,8,policy,"명. 정책, 방침"
+22,9,contact,"명. 연락, 접촉"
+22,10,remain,"동. 계속 ~이다, 남다"
+22,11,sustain,"동. 계속 ~을 시키다, 지속시키다"
+22,12,weekday,명. 평일
+22,13,follow,"동. 준수하다, 따라가다"
+22,14,portrait,"명. 초상화, 묘사"
+22,15,accountable,형. 책임이 있는
+22,16,vegetable,"명. 채소, 야채"
+22,17,harbor,"명. 항구, 항만, 피난처"
+22,18,coordinate,"동. 조직화하다, 조정하다
+명. 좌표, 함께 잘 어울리는 옷들"
+22,19,motivate,동. 동기를 부여하다
+22,20,found,"동. 설립하다, 세우다"
+22,21,amend,"동. 개정하다, 수정하다"
+22,22,validate,"동. 입증하다, 승인[인정]하다"
+22,23,ventilation,"명. 환기, 통풍"
+22,24,contaminate,동. 오염시키다
+22,25,deplete,"동. 대폭 감소시키다, 격감시키다"
+22,26,sustainable practices,지속 가능한 관행
+22,27,expand product lines,제품 라인을 확장하다
+22,28,maximize profits,수익을 극대화하다
+22,29,target specific demographics,특정 인구 통계를 타겟으로 하다
+22,30,reliable service,신뢰할 만한 서비스
+23,1,pesticide,"명. 살충제, 농약"
+23,2,emission,"명. 배출, 배기가스"
+23,3,synthetic,"형. 합성한, 인조의
+명. 합성 물질"
+23,4,artificial,"형. 인공의, 인위적인"
+23,5,adopt,"동. 입양하다, 채택하다"
+23,6,anonymous,"형. 익명인, 익명으로 된"
+23,7,ambiguous,"형. 애매모호한, 애매한"
+23,8,allocation,"명. 할당량, 할당"
+23,9,acknowledge,"동. 인정하다, 받았음을 알리다"
+23,10,deep,"형. 깊은, (삭감/할인 등) 대폭적인"
+23,11,responsible,형. 책임이 있는
+23,12,transaction,"명. 거래, 매매, 처리(과정)"
+23,13,gladly,"부. 기꺼이, 기쁘게"
+23,14,draft,"명. 원고, 초안"
+23,15,finalize,"동. 마무리 짓다, 완결하다"
+23,16,tenant,"명. 세입자, 임차인
+동. 임차해서[세 들어] 살다"
+23,17,raise,"동. 들어올리다, (자금/사람 등) 모으다"
+23,18,adapt,"동. 맞추다, 조정하다, 적응하다, 각색하다"
+23,19,following,"형. 그 다음의
+전. ~후에, ~에 따라"
+23,20,cathedral,명. 대성당
+23,21,ambitious,"형. 야심 있는, 어마어마한"
+23,22,outlet,"명. 직판점, 할인점, 콘센트"
+23,23,investment,"명. 투자, 투자액"
+23,24,banquet,"명. 연회, 만찬"
+23,25,outstanding,"형. 뛰어난, 걸출한, 두드러진, 미지불된"
+23,26,valuable feedback,귀중한 피드백
+23,27,comply with industry standards,업계 표준을 준수하다
+23,28,call off a meeting,회의를 취소하다
+23,29,run a company,회사를 운영하다
+23,30,set up a business,사업을 시작하다
+24,1,weigh,"동. 무게를 달다, 저울질하다"
+24,2,scale,"명. 규모, 범위, 등급
+동. 오르다"
+24,3,terms,명. (합의/계약 등의) 조건
+24,4,regarding,"전. ~에 관하여, 대하여"
+24,5,including,전. ~을 포함하여
+24,6,integrate,동. 통합시키다
+24,7,seating,"명. 좌석, 자리"
+24,8,faulty,"형. 결함이 있는, 잘못된"
+24,9,possibly,부. 아마
+24,10,await,동. 기다리다
+24,11,advisable,"형. 바람직한, 권할 만한"
+24,12,sophisticated,"형. 세련된, 교양 있는, 정교한"
+24,13,instant,"형. 즉각적인
+명. 순간, 아주 짧은 동안"
+24,14,appreciate,"동. 진가를 알아보다, 인정하다, 인식하다"
+24,15,describe,"동. 말하다, 묘사하다"
+24,16,superfluous,"형. 필요치 않은, 불필요한"
+24,17,shred,"동. 자르다, 찢다, 채를 썰다
+명. 조각, 티끌"
+24,18,nominee,"명. 지명된 사람, 후보"
+24,19,spare,"형. 남는, 여분의
+동. 할애하다"
+24,20,aim,"명. 목적, 목표
+동. 목표하다"
+24,21,hustle,"동. 떠밀다, 재촉하다"
+24,22,contributor,"명. 기고자, 토론자, 기부자, 기여자"
+24,23,deal,"동. 처리하다(with)
+명. 거래, 정책"
+24,24,behalf,"명. 이익, 원조, 자기편, 지지"
+24,25,lack,"명. 부족, 결핍
+동. ~이 없다, 부족하다"
+24,26,accurately measure,정확하게 측정하다
+24,27,regularly updated,정기적으로 업데이트하다
+24,28,precisely calculate,정밀하게 계산하다
+24,29,easily accessible,쉽게 접근 가능한
+24,30,widely recognized,널리 인정 받는
+25,1,description,"명. 서술, 기술, 묘사"
+25,2,statement,"명. 성명(서), 진술(서)"
+25,3,compliance,"명. 준수, 따름"
+25,4,detailed,형. 상세한
+25,5,recent,형. 최근의
+25,6,expertise,명. 전문 지식
+25,7,reputation,"명. 평판, 명성"
+25,8,value,"명. 가치
+동. 소중하게 생각하다, 평가하다"
+25,9,loyalty,"명. 충실, 충성"
+25,10,reference,"명. 말하기, 언급, 참고"
+25,11,arrange,"동. 마련하다, 정리하다, 배열하다"
+25,12,warranty,명. 품질 보증서
+25,13,independent,"형. 독립된, 독립적인"
+25,14,surplus,"명. 과잉, 흑자
+형. 과잉의, 잉여의"
+25,15,obstruct,"동. 막다, 방해하다"
+25,16,assign,"동. 맡기다, 배정하다, 부과하다"
+25,17,assure,"동. 장담하다, 확언하다"
+25,18,address,"명. 주소
+동. 주소를 쓰다, 연설하다, 해결하다"
+25,19,effort,"명. 수고, 노력"
+25,20,questionnaire,명. 설문지
+25,21,regain,"동. 되찾다, 회복하다"
+25,22,fulfill,"동. 성취하다, 실현하다, 이행하다"
+25,23,subscription,"명. 구독, 구독료, 기부, 기부금"
+25,24,process,"명. 과정, 절차"
+25,25,coverage,"명. 보도, 범위"
+25,26,incredibly versatile,놀라울 정도로 다재다능한
+25,27,unanimously agree,만장일치로 동의하다
+25,28,adjust accordingly,그에 따라 조정하다
+25,29,actively participate in,적극적으로 참여하다
+25,30,professionally develop,전문적으로 개발하다
+26,1,remind,"동. 상기시키다, 다시 한 번 알려주다"
+26,2,obligation,명. 의무
+26,3,revoke,"동. 폐지하다, 철회/취소하다"
+26,4,sensitive,"형. 세심한, 예민한"
+26,5,perceive,"동. 감지하다, 인지하다"
+26,6,descend,"동. 내려오다, 경사지다, 내리막이 되다"
+26,7,modest,"형. (크기/가격/중요성 등이) 보통의, 겸손한, 수수한"
+26,8,adjust,"동. 조정하다, 바로잡다"
+26,9,appealing,"형. 매력적인, 호소하는, 애원하는"
+26,10,sizable,"형. 상당한 크기의, 꽤 큰"
+26,11,tie,"동. 묶다, 달다
+명. 넥타이, 끈"
+26,12,steep,"형. 가파른, 급격한, 너무 비싼"
+26,13,subsequent,"형. 그 다음의, 차후의"
+26,14,numerous,형. 많은
+26,15,conserve,"동. 아끼다, 보존하다"
+26,16,outgoing,"형. 외향적인, 사교적인"
+26,17,status,"명. 신분, 지위"
+26,18,profitable,"형. 수익성이 있는, 이득이 되는, 유익한"
+26,19,expect,"동. 예상하다, 기대하다"
+26,20,different,"형. 다른, 차이가 나는"
+26,21,temperature,"명. 온도, 기온, 체온"
+26,22,orderly,"형. 정돈된, 정연한, 질서 있는"
+26,23,leisurely,"형. 한가한, 여유로운, 느긋한"
+26,24,delicate,"형. 연약한, 여린, 다치기 쉬운, 섬세한"
+26,25,growth,"명. 성장, 증가"
+26,26,immediately after,"곧, 곧 뒤따라"
+26,27,receive a discount on,~에 할인을 받다
+26,28,heavy rain/snow,폭우/폭설
+26,29,additional fees/costs,추가 요금/비용
+26,30,be closely related to,~와 밀접하게 관련이 있다
+27,1,intentional,"형. 의도적인, 고의로 한"
+27,2,enlist,"동. 요청하다, 징집하다"
+27,3,articulate,"동. 분명히 표현하다, 설명하다
+형. 또렷한, 분명히 표현하는"
+27,4,unprecedented,형. 전례 없는
+27,5,patronage,"명. 후원, 지원"
+27,6,establish,"동. 설립하다, 수립하다, 확고히 하다"
+27,7,affluent,형. 부유한
+27,8,automatically,부. 자동으로
+27,9,populate,"동. 살다, 거주하다, 이주시키다"
+27,10,adverse,"형. 부정적인, 불리한"
+27,11,understaffed,형. 인원이 부족한
+27,12,halt,"동. 멈추다, 세우다
+명. 멈춤, 중단"
+27,13,routine,"명. 루틴, 일상
+형. 일상적인, 보통의"
+27,14,approach,"동. 다가가다, 접촉하다
+명. 접근법, 다가감"
+27,15,rather,"부. 꽤, 약간, 상당히"
+27,16,elect,"동. 선출하다, 선택하다
+형. 당선된"
+27,17,broadcast,"동. 방송하다, 널리 알리다
+명. 방송"
+27,18,ahead,"부. 앞으로, 앞에, 미리"
+27,19,otherwise,부. 그렇지 않으면
+27,20,allege,"동. 혐의를 제기하다, 주장하다"
+27,21,fluent,"형. 유창한, 능숙한"
+27,22,consume,"동. 소모하다, 소비하다"
+27,23,marginal,"형. 미미한, 중요하지 않은, 주변부의"
+27,24,industrial,"형. 산업의, 공업의"
+27,25,comparable,"형. 비슷한, 비교할 만한"
+27,26,widely available,널리 이용되는
+27,27,tight regulations/rules,강경한 규제/규칙
+27,28,specialize in,~을 전문으로 하다
+27,29,be designed for,~을 위해 고안되다
+27,30,be on vacation,휴가 중이다
+28,1,successive,"형. 연속적인, 연이은, 잇따른"
+28,2,responsive,"형. 즉각 반응하는, 호응하는"
+28,3,entry,"명. 입장, 출입, 가입"
+28,4,produce,"동. 생산하다
+명. 농작물, 농산물"
+28,5,grant,"동. 승인하다, 인정하다
+명. 보조금"
+28,6,retain,"동. 유지하다, 간직하다"
+28,7,mature,"형. 어른스러운, 분별 있는
+동. 어른스러워지다, 성숙해지다"
+28,8,delete,동. 삭제하다
+28,9,remark,"명. 발언, 언급, 주목"
+28,10,overstate,동. 과장하다
+28,11,impulsive,형. 충동적인
+28,12,impartial,형. 공정한
+28,13,scheme,"명. 계획, 제도
+동. 책략을 꾸미다"
+28,14,ethic,"명. 윤리, 도덕"
+28,15,instrumental,"형. 중요한, 악기에 의한
+명. 기악곡"
+28,16,harsh,"형. 가혹한, 냉혹한, 혹독한"
+28,17,costly,형. 많은 돈이 드는
+28,18,merchant,명. 상인
+28,19,audiovisual,형. 시청각의
+28,20,edible,"형. 먹을 수 있는, 식용의"
+28,21,risky,형. 위험한
+28,22,discard,"동. 버리다, 폐기하다
+명. 버린 패"
+28,23,rigid,"형. 엄격한, 융통성 없는"
+28,24,enroll,"동. 등록하다, 입학하다"
+28,25,rewarding,"형. 보람 있는, 돈을 많이 버는"
+28,26,in a minute,"즉각, 당장"
+28,27,in particular,"특히, 특별히"
+28,28,under control,"통제되는, 지배되는"
+28,29,raise awareness of,~에 대한 인식을 높이다
+28,30,take the opportunity,기회를 잡다
+29,1,debate,"명. 토론, 논쟁
+동. 논의하다, 숙고하다"
+29,2,surpass,"동. 능가하다, 뛰어넘다"
+29,3,insert,"동. 끼우다, 삽입하다
+명. 삽입 광고, 부속품"
+29,4,tricky,"형. 힘든, 까다로운, 교묘한"
+29,5,dozen,"명. 12개짜리 한 묶음, 다스"
+29,6,march,"동. 행진하다
+명. 행군, 행진"
+29,7,withstand,"동. 견뎌 내다, 이겨 내다"
+29,8,offset,"동. 상쇄하다, 벌충하다"
+29,9,revenue,"명. 수익, 수입"
+29,10,retention,"명. 보유, 유지, 정체, 잔류"
+29,11,consolidate,"동. 굳히다, 강화하다, 통합하다"
+29,12,diagnosis,명. 진단
+29,13,punish,"동. 처벌하다, 벌주다"
+29,14,culminate,"동. 막을 내리다, 끝이 나다"
+29,15,attorney,명. 변호사
+29,16,fabric,"명. 직물, 천"
+29,17,savvy,"명. 지식, 상식, 요령"
+29,18,barter,동. 물물교환하다
+29,19,catastrophe,"명. 참사, 재앙"
+29,20,abandon,"동. 버리다, 유기하다"
+29,21,decompose,"동. 분해되다, 부패되다"
+29,22,resource,"명. 자원, 재원
+동. 자원을 제공하다"
+29,23,means,"명. 수단, 방법, 돈, 재력"
+29,24,persuade,동. 설득하다
+29,25,solely,"부. 오로지, 단지, 단독으로"
+29,26,follow up on,~에 대해 후속 조치를 취하다
+29,27,have yet to do,아직 ~하지 않았다
+29,28,by the way,"그런데, 한편"
+29,29,hold a festival,축제를 개최하다
+29,30,take place,"개최되다, 발생하다"
+30,1,flair,"명. 재능, 재주, 솜씨"
+30,2,reap,"동. 거두다, 수확하다, 거둬들이다"
+30,3,accumulate,"동. 모으다, 축적하다"
+30,4,fleet,"명. 무리, 함대"
+30,5,obscure,"형. 무명의, 이해하기 힘든, 모호한
+동. 이해하기 어렵게 하다"
+30,6,manifest,"동. 나타내다, 분명해지다
+형. 분명한"
+30,7,entail,동. 수반하다
+30,8,staple,"형. 주된, 주요한"
+30,9,furnished,형. 가구가 비치된
+30,10,serving,명. (음식의) 1인분
+30,11,scarcity,"명. 부족, 결핍"
+30,12,transferable,"형. 이동 가능한, 양도 가능한"
+30,13,mundane,"형. 재미없는, 일상적인"
+30,14,elaborate,"형. 정교한, 정성을 들인
+동. 자세히 말하다, 정교하게 만들어 내다"
+30,15,conceive,"동. 마음속으로 하다, 상상하다"
+30,16,deficit,"명. 적자, 부족액, 결손"
+30,17,monetary,"형. 통화의, 화폐의"
+30,18,energetic,형. 활동적인
+30,19,vibrant,"형. 활기찬, 강렬한, 힘찬"
+30,20,proliferation,"명. 급증, 확산"
+30,21,savory,"형. 맛 좋은, 향긋한, 즐거운"
+30,22,fluctuate,동. 등락을 거듭하다
+30,23,probable,"형. 있을 것 같은, 개연성 있는"
+30,24,breakthrough,명. 돌파구
+30,25,surge,"동. 급등하다, 급증하다
+명. 급증, 급등, 솟아오름"
+30,26,rise through the roof,치솟다
+30,27,figure out,이해하다
+30,28,give it a thought,생각해 보다
+30,29,up and running,작동 중인
+30,30,cut down on,~을 줄이다

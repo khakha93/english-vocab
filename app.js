@@ -41,55 +41,103 @@ async function initIndexPage() {
     const startForm = document.getElementById('start-form');
     if (!startForm) return;
 
-    // 데이터 로드 후 최대 인덱스 설정
-    try {
-        const response = await fetch('vocab/data.json');
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        
-        // 전체 단어 데이터를 sessionStorage에 저장
-        sessionStorage.setItem('wordData', JSON.stringify(data));
+    const effControls = document.getElementById('eff-controls');
+    const toeicControls = document.getElementById('toeic-controls');
 
-        const maxIndex = Object.keys(data).length;
-        document.getElementById('start_index').max = maxIndex;
-        document.getElementById('max-index-label').textContent = `(최대: ${maxIndex})`;
-
-    } catch (error) {
-        console.error('Failed to load word data:', error);
-        alert('단어 데이터를 불러오는 데 실패했습니다.');
-        return;
+    // 모드 전환 이벤트 리스너
+    const modeRadios = startForm.querySelectorAll('input[name="mode"]');
+    if (effControls && toeicControls) {
+        modeRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'EFF') {
+                    effControls.style.display = 'block';
+                    toeicControls.style.display = 'none';
+                } else {
+                    effControls.style.display = 'none';
+                    toeicControls.style.display = 'block';
+                }
+            });
+        });
     }
 
-    startForm.addEventListener('submit', (event) => {
+    startForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const wordData = JSON.parse(sessionStorage.getItem('wordData'));
-        if (!wordData) {
-            alert('단어 데이터가 로드되지 않았습니다. 페이지를 새로고침 해주세요.');
-            return;
-        }
-
         const formData = new FormData(startForm);
-        let startIndex = parseInt(formData.get('start_index'), 10) - 1;
+        const mode = formData.get('mode');
         const isShuffle = formData.get('is_shuffle') === 'on';
+        
+        let wordData = [];
+        let wordIndices = [];
+        let startIndex = 0;
 
-        const wordIndices = Object.keys(wordData).map(Number);
+        if (mode === 'EFF') {
+            const rawData = JSON.parse(sessionStorage.getItem('effWordData'));
+            if (!rawData) {
+                alert('단어 데이터가 로드되지 않았습니다. 페이지를 새로고침 해주세요.');
+                return;
+            }
+            // EFF 데이터는 객체 형태이므로 배열처럼 접근하기 위해 키 매핑
+            // 기존 로직 유지를 위해 wordData에 전체 객체를 저장하고 인덱스로 접근
+            sessionStorage.setItem('wordData', JSON.stringify(rawData));
+            
+            startIndex = parseInt(formData.get('start_index'), 10) - 1;
+            wordIndices = Object.keys(rawData).map(Number);
 
-        if (isNaN(startIndex) || startIndex < 0 || startIndex >= wordIndices.length) {
-            startIndex = 0;
+            if (isNaN(startIndex) || startIndex < 0 || startIndex >= wordIndices.length) {
+                startIndex = 0;
+            }
+        } else if (mode === 'TOEIC') {
+            try {
+                const response = await fetch('vocab/vocabulary.csv');
+                if (!response.ok) throw new Error('Failed to load vocabulary.csv');
+                const text = await response.text();
+                const allToeicData = parseCSV(text);
+
+                const startDay = parseInt(formData.get('start_day'), 10);
+                const endDay = parseInt(formData.get('end_day'), 10);
+
+                // Day 필터링
+                const filteredData = allToeicData.filter(item => item.day >= startDay && item.day <= endDay);
+                
+                if (filteredData.length === 0) {
+                    alert('해당 범위에 단어가 없습니다.');
+                    return;
+                }
+
+                // TOEIC 데이터는 배열 형태. 인덱스는 0부터 시작.
+                // wordData에 필터링된 배열을 저장.
+                // viewer에서는 인덱스로 접근하므로, wordIndices는 0 ~ length-1
+                sessionStorage.setItem('wordData', JSON.stringify(filteredData));
+                wordIndices = filteredData.map((_, index) => index);
+                startIndex = 0; // TOEIC 모드는 항상 처음부터 시작 (필터링된 범위 내에서)
+
+            } catch (error) {
+                console.error(error);
+                alert('TOEIC 데이터를 불러오는 데 실패했습니다.');
+                return;
+            }
         }
 
         if (isShuffle) {
             // Fisher-Yates shuffle
-            let partToShuffle = wordIndices.slice(startIndex);
+            // EFF 모드일 때는 startIndex 이후만 섞었으나, TOEIC은 전체(필터된 범위)를 섞음
+            let partToShuffle = mode === 'EFF' ? wordIndices.slice(startIndex) : wordIndices;
+            
             for (let i = partToShuffle.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [partToShuffle[i], partToShuffle[j]] = [partToShuffle[j], partToShuffle[i]];
             }
-            wordIndices.splice(startIndex, partToShuffle.length, ...partToShuffle);
+            
+            if (mode === 'EFF') {
+                wordIndices.splice(startIndex, partToShuffle.length, ...partToShuffle);
+            } else {
+                wordIndices = partToShuffle;
+            }
         }
 
         // 세션 정보 저장
+        sessionStorage.setItem('mode', mode);
         sessionStorage.setItem('word_indices', JSON.stringify(wordIndices));
         sessionStorage.setItem('start_index', startIndex);
         sessionStorage.setItem('current_index', startIndex); // 학습 시작 위치
@@ -100,6 +148,148 @@ async function initIndexPage() {
 
         window.location.href = 'viewer.html';
     });
+
+    // 데이터 로드 후 최대 인덱스 설정 (이벤트 리스너 등록 후에 실행)
+    if (document.getElementById('start_index')) {
+        try {
+            const response = await fetch('vocab/data.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+            
+            // 전체 단어 데이터를 sessionStorage에 저장 (EFF용)
+            sessionStorage.setItem('effWordData', JSON.stringify(data));
+
+            const maxIndex = Object.keys(data).length;
+            document.getElementById('start_index').max = maxIndex;
+            document.getElementById('max-index-label').textContent = `(최대: ${maxIndex})`;
+
+        } catch (error) {
+            console.error('Failed to load word data:', error);
+            // EFF 모드가 아닐 수도 있으므로 여기서 return 하지 않음
+            // alert('단어 데이터를 불러오는 데 실패했습니다.'); 
+        }
+    }
+
+    // TOEIC 모드용 Day Grid 초기화
+    try {
+        const response = await fetch('vocab/vocabulary.csv');
+        if (response.ok) {
+            const text = await response.text();
+            const data = parseCSV(text);
+            const maxDay = data.reduce((max, item) => Math.max(max, item.day), 0);
+            initDayGrid(maxDay);
+        }
+    } catch (error) {
+        console.error('Failed to load vocabulary.csv for grid:', error);
+    }
+}
+
+function initDayGrid(maxDay) {
+    const gridContainer = document.getElementById('day-grid');
+    const startInput = document.getElementById('start_day');
+    const endInput = document.getElementById('end_day');
+    const rangeDisplay = document.getElementById('range-display');
+    
+    if (!gridContainer) return;
+
+    let rangeStart = 1;
+    let rangeEnd = 1;
+    let clickStep = 0; // 0: 선택 완료(새 시작 대기), 1: 시작점 선택됨(끝점 대기)
+
+    function updateUI() {
+        startInput.value = rangeStart;
+        endInput.value = rangeEnd;
+        rangeDisplay.textContent = `${rangeStart} ~ ${rangeEnd}`;
+
+        const buttons = gridContainer.querySelectorAll('.day-btn');
+        buttons.forEach(btn => {
+            const day = parseInt(btn.dataset.day, 10);
+            btn.className = 'day-btn'; // reset
+            if (day === rangeStart || day === rangeEnd) {
+                btn.classList.add('selected');
+            } else if (day > rangeStart && day < rangeEnd) {
+                btn.classList.add('in-range');
+            }
+        });
+    }
+
+    for (let i = 1; i <= maxDay; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button'; // 폼 제출 방지
+        btn.className = 'day-btn';
+        btn.textContent = i;
+        btn.dataset.day = i;
+        
+        btn.addEventListener('click', () => {
+            if (clickStep === 0) {
+                rangeStart = i;
+                rangeEnd = i;
+                clickStep = 1;
+            } else {
+                if (i < rangeStart) {
+                    rangeStart = i;
+                    rangeEnd = i;
+                    // clickStep remains 1 (still waiting for end, or treating this as new start)
+                } else {
+                    rangeEnd = i;
+                    clickStep = 0;
+                }
+            }
+            updateUI();
+        });
+
+        gridContainer.appendChild(btn);
+    }
+    
+    // 초기 UI 업데이트
+    updateUI();
+}
+
+function parseCSV(text) {
+    const data = [];
+    let currentRow = [];
+    let currentVal = '';
+    let inQuote = false;
+
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+
+        if (char === '"') {
+            inQuote = !inQuote;
+        }
+
+        if (char === ',' && !inQuote) {
+            currentRow.push(currentVal);
+            currentVal = '';
+        } else if ((char === '\n' || char === '\r') && !inQuote) {
+            currentRow.push(currentVal);
+            if (currentRow.length >= 4) {
+                data.push(currentRow);
+            }
+            currentRow = [];
+            currentVal = '';
+            // \r\n 처리: 다음 문자가 \n이면 건너뜀 (단, for문에서 i가 증가하므로 여기서 처리 필요 없음, 
+            // 하지만 char가 \r일 때 위 조건에 걸려 처리되었으므로, 다음 \n은 빈 줄로 처리될 수 있음. 
+            // 간단하게 \r, \n 모두 행 구분자로 처리하고 빈 줄은 무시하는 로직이 안전함)
+        } else {
+            currentVal += char;
+        }
+    }
+    // 마지막 줄 처리
+    if (currentVal || currentRow.length > 0) {
+        currentRow.push(currentVal);
+        if (currentRow.length >= 4) data.push(currentRow);
+    }
+
+    // 헤더 제외 (첫 번째 행의 day가 숫자가 아니면 헤더로 간주)
+    const startIndex = (data.length > 0 && isNaN(parseInt(data[0][0]))) ? 1 : 0;
+
+    return data.slice(startIndex).map(parts => ({
+        day: parseInt(parts[0].trim(), 10),
+        idx: parts[1].trim(),
+        en: parts[2].replace(/^"|"$/g, '').trim(),
+        ko: parts[3].replace(/^"|"$/g, '').trim()
+    }));
 }
 
 /**
@@ -113,12 +303,18 @@ function initViewerPage() {
         return;
     }
 
+    const mode = sessionStorage.getItem('mode') || 'EFF';
+    if (mode === 'TOEIC') {
+        document.body.classList.add('mode-toeic');
+    }
+
     // DOM 요소 가져오기
     const titlePane = document.getElementById('title-pane');
     const derivPane = document.getElementById('deriv-pane');
     const screen = document.querySelector('.screen');
 
     const progressElem = document.getElementById('progress-display');
+    const dayElem = document.getElementById('day-display');
     const timerElem = document.getElementById('timer-display');
 
     const nextBtn = document.getElementById('next-btn');
@@ -141,6 +337,10 @@ function initViewerPage() {
     let autoAdvanceTimer = null;
     const DELAY_EN_TO_KO = 3000; // 3초
     const DELAY_KO_TO_NEXT = 2000; // 2초
+
+    if (mode !== 'TOEIC' && dayElem) {
+        dayElem.style.display = 'none';
+    }
 
     // 타이머 시작
     function startTimer() {
@@ -175,16 +375,25 @@ function initViewerPage() {
         clearTimeout(autoAdvanceTimer);
         currentState = 'SHOWING_KO';
 
-        // 한글 뜻을 위한 스타일로 변경
-        titlePane.className = 'word-translation';
-        titlePane.textContent = currentWord.ko;
-
-        // deriv_ko의 타입에 따라 올바르게 처리합니다.
-        if (Array.isArray(currentWord.deriv_ko)) {
-            derivPane.textContent = currentWord.deriv_ko.join('\n');
+        if (mode === 'TOEIC') {
+            // TOEIC 모드: title에 영어 유지, deriv에 한글 뜻 표시
+            titlePane.className = 'word-title'; // 영어 스타일 유지
+            titlePane.textContent = currentWord.en;
+            
+            derivPane.className = 'word-translation'; // 한글 스타일 적용
+            derivPane.innerHTML = currentWord.ko.replace(/\n/g, '<br>');
         } else {
-            // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
-            derivPane.textContent = (currentWord.deriv_ko || '').replace(/, /g, '\n');
+            // EFF 모드 (기존 동작): title에 한글 뜻, deriv에 파생어 한글
+            titlePane.className = 'word-translation';
+            titlePane.textContent = currentWord.ko;
+
+            // deriv_ko의 타입에 따라 올바르게 처리합니다.
+            if (Array.isArray(currentWord.deriv_ko)) {
+                derivPane.textContent = currentWord.deriv_ko.join('\n');
+            } else {
+                // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
+                derivPane.textContent = (currentWord.deriv_ko || '').replace(/, /g, '\n');
+            }
         }
     }
 
@@ -202,12 +411,19 @@ function initViewerPage() {
         titlePane.className = 'word-title';
         titlePane.textContent = currentWord.en;
 
-        // deriv_en의 타입에 따라 올바르게 처리합니다.
-        if (Array.isArray(currentWord.deriv_en)) {
-            derivPane.textContent = currentWord.deriv_en.join('\n');
+        if (mode === 'TOEIC') {
+            // TOEIC 모드: deriv 부분 비움 (또는 필요시 day 정보 등 표시 가능)
+            derivPane.textContent = '';
+            if (dayElem) dayElem.textContent = `Day ${currentWord.day}`;
         } else {
-            // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
-            derivPane.textContent = (currentWord.deriv_en || '').replace(/, /g, '\n');
+            // EFF 모드 (기존 동작): deriv에 파생어 영어
+            // deriv_en의 타입에 따라 올바르게 처리합니다.
+            if (Array.isArray(currentWord.deriv_en)) {
+                derivPane.textContent = currentWord.deriv_en.join('\n');
+            } else {
+                // 문자열인 경우, 쉼표를 줄바꿈으로 변경합니다.
+                derivPane.textContent = (currentWord.deriv_en || '').replace(/, /g, '\n');
+            }
         }
 
         if (isAutoSpeakOn) {
@@ -353,6 +569,7 @@ function getNextWord() {
         ko: row.ko,
         deriv_en: row.deriv_en,
         deriv_ko: row.deriv_ko,
+        day: row.day,
         progress: `${progress} (${progress - alreadyKnow})`,
         finished: false
     };

@@ -79,7 +79,7 @@ header {
     border-bottom: 1px solid var(--screen-border);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .screen {
         flex-direction: row; /* Switch to left-right split on wider screens */
     }
@@ -90,18 +90,29 @@ header {
 }
 
 .word-title {
-    font-size: 72px; /* Base font size, will be adjusted by JS */
+    font-size: clamp(36px, 10vw, 72px); /* 최소 36px, 화면의 10%, 최대 72px */
     font-weight: 800;
     letter-spacing: .02em;
     color: var(--accent);
-    word-break: break-word; /* Break long words to prevent horizontal overflow */
+    word-break: keep-all; /* 단어 단위로 줄바꿈 */
 }
 
 .word-translation {
     font-size: 24px; /* 파생어의 한글 뜻과 동일한 크기 */
     font-weight: 600;
     color: var(--accent); /* 표제어의 영어 단어와 동일한 색상 */
-    word-break: break-word;
+    word-break: keep-all;
+    white-space: pre-wrap;
+}
+
+.mode-toeic .word-title {
+    font-size: clamp(32px, 8vw, 56px); /* 최소 32px, 화면의 8%, 최대 56px */
+}
+
+.mode-toeic .word-translation {
+    color: var(--txt);
+    font-weight: 400;
+    font-size: 20px; /* 원하는 크기로 조절하세요 */
 }
 
 .word-deriv {
@@ -109,7 +120,7 @@ header {
     color: var(--txt);
     white-space: pre-wrap;
     line-height: 1.6;
-    word-break: break-word; /* Break long words to prevent horizontal overflow */
+    word-break: keep-all;
 }
 
 /* Styles moved from index.html */
@@ -212,6 +223,16 @@ button#end-btn:hover {
     font-size: 14px;
     margin-bottom: 12px; /* Add space between info bar and screen */
     padding: 0 4px; /* Align with app padding */
+    position: relative;
+}
+
+#day-display {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--txt);
 }
 
 .timer-controls {
@@ -230,4 +251,74 @@ button#end-btn:hover {
     font-variant-numeric: tabular-nums; /* Ensure numbers have the same width */    
     height: 24px; /* Set a fixed height to prevent layout shift */
     line-height: 24px; /* Vertically center the text/icon inside */
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls-group {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .controls-group:first-child {
+        justify-content: flex-end;
+    }
+
+    .controls-group:first-child #end-btn {
+        margin-right: auto;
+    }
+
+    .controls-group:last-child {
+        justify-content: space-between;
+    }
+
+    .controls-group button {
+        width: 25%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Day Grid Styles */
+.day-range-group {
+    display: block;
+}
+
+.day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.day-btn {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    color: var(--muted);
+    padding: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.day-btn:hover {
+    background: var(--card-border);
+    color: var(--txt);
+}
+
+.day-btn.selected {
+    background: var(--accent);
+    color: #051018;
+    border-color: var(--accent);
+    font-weight: 800;
+}
+
+.day-btn.in-range {
+    background: rgba(34, 211, 238, 0.15);
+    color: var(--accent);
+    border-color: rgba(34, 211, 238, 0.3);
 }

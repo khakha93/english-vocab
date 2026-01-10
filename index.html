@@ -9,14 +9,37 @@
 <body id="page-index">
     <div class="app">
         <header>
-            <h1 class="title">Eff-Vocab Viewer</h1>
+            <h1 class="title">Vocab Viewer</h1>
         </header>
         <form id="start-form">
+            <!-- 당분간 EFF 모드 숨김
             <div class="form-group">
-                <label for="start_index">시작 번호:</label>
-                <input type="number" id="start_index" name="start_index" value="1" min="1">
-                <span id="max-index-label" class="muted"></span>
+                <label>Mode:</label>
+                <label style="margin-right: 10px;"><input type="radio" name="mode" value="EFF" checked> EFF</label>
+                <label><input type="radio" name="mode" value="TOEIC"> TOEIC</label>
             </div>
+            -->
+            <input type="hidden" name="mode" value="TOEIC">
+
+            <!--
+            <div id="eff-controls">
+                <div class="form-group">
+                    <label for="start_index">시작 번호:</label>
+                    <input type="number" id="start_index" name="start_index" value="1" min="1">
+                    <span id="max-index-label" class="muted"></span>
+                </div>
+            </div>
+            -->
+
+            <div id="toeic-controls">
+                <div class="form-group day-range-group">
+                    <label>Day Range: <span id="range-display" style="color: var(--accent); font-weight: bold;">1 ~ 1</span></label>
+                    <input type="hidden" name="start_day" id="start_day" value="1">
+                    <input type="hidden" name="end_day" id="end_day" value="1">
+                    <div id="day-grid" class="day-grid"></div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <input type="checkbox" id="is_shuffle" name="is_shuffle">
                 <label for="is_shuffle">순서 섞기</label>
