@@ -99,7 +99,7 @@ header {
 }
 
 .word-title.long-word {
-    font-size: clamp(24px, 6vw, 48px); /* 10자 이상 단어 포함 시 폰트 크기 축소 */
+    font-size: clamp(28px, 6vw, 48px); /* 10자 이상 단어 포함 시 폰트 크기 축소 */
 }
 
 .word-translation {
@@ -115,13 +115,13 @@ header {
 }
 
 .mode-toeic .word-title.long-word {
-    font-size: clamp(20px, 5vw, 40px); /* TOEIC 모드에서 긴 단어는 더 작게 */
+    font-size: clamp(27px, 5vw, 40px); /* TOEIC 모드에서 긴 단어는 더 작게 */
 }
 
 .mode-toeic .word-translation {
     color: var(--txt);
     font-weight: 400;
-    font-size: 20px; /* 원하는 크기로 조절하세요 */
+    font-size: 18px; /* 원하는 크기로 조절하세요 */
 }
 
 .word-deriv {
