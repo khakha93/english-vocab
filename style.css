@@ -224,6 +224,41 @@ button#end-btn:hover {
     background: #5c2231;
     border-color: rgba(248, 113, 113, .5);
 }
+
+button.review-btn {
+    background: #d97706; /* Amber-600 */
+    border-color: #b45309;
+    color: #fff;
+}
+
+button.review-btn:hover {
+    background: #b45309;
+    border-color: #92400e;
+}
+
+.review-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-controls label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--txt);
+    user-select: none;
+}
+
+.review-controls input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
 .screen-info {
     display: flex;
     justify-content: space-between;
@@ -330,4 +365,66 @@ button#end-btn:hover {
     background: rgba(34, 211, 238, 0.15);
     color: var(--accent);
     border-color: rgba(34, 211, 238, 0.3);
+}
+
+/* Review Section Styles (Accordion) */
+.review-section {
+    margin-top: 20px;
+    border-top: 1px solid var(--card-border);
+    padding-top: 20px;
+}
+
+.review-section summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    list-style: none; /* 기본 화살표 제거 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.review-section summary::after {
+    content: '+';
+    font-weight: 400;
+}
+
+.review-section[open] summary::after {
+    content: '-';
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px; /* 너무 길어지면 스크롤 */
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.review-item .en {
+    font-weight: 700;
+    color: var(--txt);
+    margin-right: 10px;
+    text-align: left;
+}
+
+.review-item .ko {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: right;
+    word-break: keep-all;
+    max-width: 60%;
 }

@@ -97,6 +97,9 @@ async function initIndexPage() {
                 const startDay = parseInt(formData.get('start_day'), 10);
                 const endDay = parseInt(formData.get('end_day'), 10);
 
+                sessionStorage.setItem('start_day', startDay);
+                sessionStorage.setItem('end_day', endDay);
+
                 // Day 필터링
                 const filteredData = allToeicData.filter(item => item.day >= startDay && item.day <= endDay);
                 
@@ -308,6 +311,37 @@ function initViewerPage() {
         document.body.classList.add('mode-toeic');
     }
 
+    // Wake Lock (화면 꺼짐 방지)
+    let wakeLock = null;
+    const requestWakeLock = async () => {
+        try {
+            if ('wakeLock' in navigator) {
+                wakeLock = await navigator.wakeLock.request('screen');
+            }
+        } catch (err) {
+            console.error('Wake Lock failed:', err);
+        }
+    };
+
+    const releaseWakeLock = async () => {
+        if (wakeLock !== null) {
+            try {
+                await wakeLock.release();
+                wakeLock = null;
+            } catch (err) {
+                console.error('Wake Lock release failed:', err);
+            }
+        }
+    };
+
+    requestWakeLock();
+
+    document.addEventListener('visibilitychange', async () => {
+        if (document.visibilityState === 'visible' && !isPaused) {
+            await requestWakeLock();
+        }
+    });
+
     // DOM 요소 가져오기
     const titlePane = document.getElementById('title-pane');
     const derivPane = document.getElementById('deriv-pane');
@@ -497,11 +531,13 @@ function initViewerPage() {
             clearTimeout(autoAdvanceTimer);
             pauseStartTime = Date.now() / 1000;
             pauseBtn.textContent = '▶️';
+            releaseWakeLock();
         } else {
             totalPausedTime += (Date.now() / 1000) - pauseStartTime;
             pauseBtn.textContent = '⏸️';
             // 현재 상태에 따라 타이머 재시작
             setNextTimer();
+            requestWakeLock();
         }
     });
 
@@ -626,14 +662,111 @@ function initSummaryPage() {
     const pauseTime = new FormattedDuration(pauseTotal);
     const passedCount = passRows.length;
     const totalStudied = currentIndex - startIndex;
-    const finalProgressStr = `${totalStudied} (${totalStudied - passedCount})`;
+    // const finalProgressStr = `${totalStudied} (${totalStudied - passedCount})`;
 
     document.getElementById('total-time').textContent = totalTime.toString();
     document.getElementById('pause-time').textContent = pauseTime.toString();
     document.getElementById('passed-count').textContent = passedCount;
-    document.getElementById('start-idx').textContent = startIndex + 1;
+    // document.getElementById('start-idx').textContent = startIndex + 1;
     document.getElementById('total-studied').textContent = totalStudied;
-    document.getElementById('final-progress').textContent = finalProgressStr;
+    // document.getElementById('final-progress').textContent = finalProgressStr;
+
+    const mode = sessionStorage.getItem('mode');
+    if (mode === 'TOEIC') {
+        const startDay = sessionStorage.getItem('start_day');
+        const endDay = sessionStorage.getItem('end_day');
+        const dayRangeDisplay = document.getElementById('day-range-display');
+        if (startDay && endDay && dayRangeDisplay) {
+            dayRangeDisplay.style.display = 'block';
+            document.getElementById('day-range-val').textContent = `${startDay} ~ ${endDay}`;
+        }
+    }
+
+    // 미암기 단어 목록 생성 (아코디언 형태)
+    const wordData = JSON.parse(sessionStorage.getItem('wordData'));
+    const wordIndices = JSON.parse(sessionStorage.getItem('word_indices'));
+    
+    const missedWords = [];
+    const missedIndices = [];
+    // 학습한 범위(startIndex ~ currentIndex) 내에서 pass하지 않은 단어 필터링
+    for (let i = startIndex; i < currentIndex; i++) {
+        const actualIndex = wordIndices[i];
+        if (!passRows.includes(actualIndex)) {
+            missedWords.push(wordData[actualIndex]);
+            missedIndices.push(actualIndex);
+        }
+    }
+
+    if (missedWords.length > 0) {
+        // 오답 재학습 버튼 추가
+        const controls = document.querySelector('.controls');
+        if (controls) {
+            const container = document.createElement('div');
+            container.className = 'review-controls';
+
+            const reviewBtn = document.createElement('button');
+            reviewBtn.textContent = '오답 재학습';
+            reviewBtn.className = 'review-btn';
+            
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = false; // 기본값: 셔플 끄기
+            
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode('Shuffle'));
+
+            reviewBtn.onclick = () => {
+                let indicesToUse = [...missedIndices]; // 원본 보존을 위해 복사
+                if (checkbox.checked) {
+                    // 셔플 (Fisher-Yates)
+                    for (let i = indicesToUse.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [indicesToUse[i], indicesToUse[j]] = [indicesToUse[j], indicesToUse[i]];
+                    }
+                }
+
+                // 세션 데이터 덮어쓰기 및 초기화
+                sessionStorage.setItem('word_indices', JSON.stringify(indicesToUse));
+                sessionStorage.setItem('start_index', 0);
+                sessionStorage.setItem('current_index', 0);
+                sessionStorage.setItem('pass_rows', JSON.stringify([]));
+                sessionStorage.setItem('start_time', Date.now() / 1000);
+                sessionStorage.setItem('pause_total', 0);
+                sessionStorage.setItem('last_index', -1);
+                sessionStorage.removeItem('total_elapsed');
+
+                window.location.href = 'viewer.html';
+            };
+            
+            container.appendChild(reviewBtn);
+            container.appendChild(label);
+            controls.insertBefore(container, controls.firstChild);
+        }
+
+        const container = document.querySelector('.summary-content');
+        if (container) {
+            const details = document.createElement('details');
+            details.className = 'review-section';
+            
+            const summary = document.createElement('summary');
+            summary.textContent = `복습이 필요한 단어 (${missedWords.length}개)`;
+            details.appendChild(summary);
+            
+            const list = document.createElement('div');
+            list.className = 'review-list';
+            
+            missedWords.forEach(word => {
+                const item = document.createElement('div');
+                item.className = 'review-item';
+                item.innerHTML = `<span class="en">${word.en}</span><span class="ko">${word.ko}</span>`;
+                list.appendChild(item);
+            });
+            
+            details.appendChild(list);
+            container.appendChild(details);
+        }
+    }
 
     // 세션 정리 (선택 사항)
     // document.getElementById('restart-button').addEventListener('click', () => {
